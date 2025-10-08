@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manito - Manita 2025</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-image: url('./christmas-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      width: 250px;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card h2 {
+      color: #c0392b;
+      margin-top: 10px;
+      font-size: 1.3rem;
+    }
+
+    .wishes {
+      text-align: left;
+      margin-top: 10px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .wishes li {
+      list-style: none;
+      padding: 5px 10px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .wishes li::before {
+      content: "🎁 ";
+    }
+
+    /* Glow effect when clicked */
+    .glow {
+      background-color: #ffe4ec;
+      box-shadow: 0 0 15px 5px #ff6699;
+      color: #d63384;
+      font-weight: bold;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Card 1 -->
+  <div class="card">
+    <img src="./Yani.jpg" alt="Yani">
+    <h2>Yani 🎄</h2>
+    <ul class="wishes">
+      <li>New tumbler</li>
+      <li>Hair clips</li>
+      <li>Pink pouch</li>
+    </ul>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <img src="./Alfred.jpg" alt="Alfred">
+    <h2>Alfred🎅</h2>
+    <ul class="wishes">
+      <li>Headset</li>
+      <li>T-shirt</li>
+      <li>Perfume</li>
+    </ul>
+  </div>
+
+  <script>
+    // Add a click effect to toggle the glow
+    document.querySelectorAll('.wishes li').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('glow');
+      });
+    });
+  </script>
+</body>
+</html>
