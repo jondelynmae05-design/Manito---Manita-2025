@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 30px;
     padding: 40px;
     overflow-x: hidden;
   }
@@ -46,7 +46,7 @@
     width: 100%;
     text-align: center;
     font-size: 2.8em;
-    color: #d40000; /* deep Christmas red */
+    color: gold;
     font-weight: 900;
     letter-spacing: 3px;
     margin-bottom: 25px;
@@ -54,73 +54,72 @@
       -1px -1px 0 #ffffff,
        1px -1px 0 #ffffff,
       -1px  1px 0 #ffffff,
-       1px  1px 0 #ffffff; /* white stroke */
+       1px  1px 0 #ffffff;
   }
 
   /* 🎁 Garland Card */
   .card {
     background: transparent;
     border-radius: 20px;
-    width: 320px;
-    padding: 25px;
+    width: 380px;
+    padding: 10px;
     backdrop-filter: blur(5px);
     text-align: center;
     color: white;
     position: relative;
-    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
-    background-image: url('garland-border.png'); /* garland border image */
+    background-image: url('garland-border.png'); /* your garland border */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 255, 128, 0.6);
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(0, 255, 128, 0.7);
   }
 
-  img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+  /* Participant photo (main person) */
+  .participant-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
     object-fit: cover;
-    border: 3px solid #d4af37; /* gold ring */
-    margin-bottom: 15px;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    margin-bottom: 5px;
+    border: 2px solid gold;
   }
 
   h2 {
-    color: #fff;
+    color: gold;
     font-weight: 600;
     margin-bottom: 10px;
   }
 
-  p {
-    color: #fff;
-  }
+  /* Wishlist container */
+  .wishlist {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+ }
 
-  ul {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-top: 10px;
-  }
+ .wish-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
 
-  li {
-    background: rgba(255, 255, 255, 0.15);
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-  }
+.wish-item:hover img {
+  transform: scale(1.40); /* makes it grow smoothly */
+  z-index: 2;
+}
 
-  li:hover {
-    box-shadow: 0 0 25px 8px rgba(0, 128, 0, 0.9);
-    transform: scale(1.05);
-  }
 </style>
 </head>
 <body>
@@ -128,57 +127,92 @@
 
 <h1>MANITO - MANITA 2025</h1>
 
-<!-- 🎄 Garland Card -->
+<!-- 🎄 Garland Card Example -->
 <div class="card">
-  <img src="Yani.jpg" alt="Yani Picture">
+  <img src="Yani.jpg" alt="Yani Picture" class="participant-photo">
   <h2>Yani</h2>
   <p>Top 3 wishes this Christmas:</p>
-  <ul>
-    <li>Pink tumbler</li>
-    <li>Cozy hoodie</li>
-    <li>Skincare set</li>
-  </ul>
+  <div class="wishlist">
+    <div class="wish-item">
+      <img src="tumbler.jpg" alt>
+      <p>Pink Tumbler</p>
+    </div>
+    <div class="wish-item">
+      <img src="hoodie.jpg" alt>
+      <p>Cozy Hoodie</p>
+    </div>
+    <div class="wish-item">
+      <img src="skincare.jpg" alt>
+      <p>Skincare Set</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <img src="Alfred.jpg" alt="Alfred Picture">
+  <img src="Alfred.jpg" alt="Alfred Picture" class="participant-photo">
   <h2>Alfred</h2>
   <p>Top 3 wishes this Christmas:</p>
-  <ul>
-    <li>Bag or tote</li>
-    <li>Chocolates</li>
-    <li>Slippers</li>
-  </ul>
+  <div class="wishlist">
+    <div class="wish-item">
+      <img src="Shoes.png" alt>
+      <p>Shoes</p>
+    </div>
+    <div class="wish-item">
+      <img src="Headphone.png" alt>
+      <p>Headphone</p>
+    </div>
+    <div class="wish-item">
+      <img src="Shirt.jpg" alt>
+      <p>Shirt</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <img src="Alcher.jpg" alt="Alcher Picture">
+  <img src="Alcher.jpg" alt="Alcher Picture" class="participant-photo">
   <h2>Alcher</h2>
   <p>Top 3 wishes this Christmas:</p>
-  <ul>
-    <li>Perfume</li>
-    <li>Watch</li>
-    <li>Shoes</li>
-  </ul>
+  <div class="wishlist">
+    <div class="wish-item">
+      <img src="Shoes.png" alt>
+      <p>Shoes</p>
+    </div>
+    <div class="wish-item">
+      <img src="Headphone.png" alt>
+      <p>Headphone</p>
+    </div>
+    <div class="wish-item">
+      <img src="Shirt.jpg" alt>
+      <p>Shirt</p>
+    </div>
+  </div>
 </div>
 
 <div class="card">
-  <img src="Rex.jpg" alt="Rex Picture">
-  <h2>Rex</h2>
+  <img src="Daisy.jpg" alt="Daisy Picture" class="participant-photo">
+  <h2>Daisy</h2>
   <p>Top 3 wishes this Christmas:</p>
-  <ul>
-    <li>Perfume</li>
-    <li>Watch</li>
-    <li>Shoes</li>
-  </ul>
+  <div class="wishlist">
+    <div class="wish-item">
+      <img src="Shoes.png" alt>
+      <p>Shoes</p>
+    </div>
+    <div class="wish-item">
+      <img src="Headphone.png" alt>
+      <p>Headphone</p>
+    </div>
+    <div class="wish-item">
+      <img src="Shirt.jpg" alt>
+      <p>Shirt</p>
+    </div>
+  </div>
 </div>
-
 
 
 
 <script>
-  // 🎄 Floating Snowflakes Generator
-  const snowflakes = 30;
+  // ❄ Floating Snowflakes Generator
+  const snowflakes = 40;
   for (let i = 0; i < snowflakes; i++) {
     const snow = document.createElement('div');
     snow.classList.add('snowflake');
