@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎁 MANITO - MANITA 2025 | Reminders</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top, #2b1508, #100803 85%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  header {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.3);
+    animation: gentleGlow 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentleGlow {
+    from { text-shadow: 0 0 10px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.2); }
+    to { text-shadow: 0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.3); }
+  }
+
+  header h2 {
+    font-size: 1.3em;
+    color: #eaeaea;
+    font-style: italic;
+    margin-top: 5px;
+    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+  }
+
+  .no-food {
+    margin-top: 1px;
+    font-size: 1em;
+    color: #ffcccc;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 8px rgba(255,0,0,0.4);
+    animation: fadePulse 2.5s infinite alternate;
+  }
+
+  @keyframes fadePulse {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+  }
+
+ .reminder-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px 20px;
+  width: 85%;
+  max-width: 500px;
+  margin-top: 15px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.5s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+ul li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2em;
+  margin: 12px 0;
+  position: relative;
+}
+
+.date {
+  color: gold;
+  font-weight: bold;
+  width: 200px; /* fixed width for alignment */
+  text-align: right;
+  padding-right: 10px;
+}
+
+.divider {
+  width: 2px;
+  height: 20px; /* line height */
+  background: gold;
+  margin: 0 15px;
+  border-radius: 1px;
+}
+
+.item {
+  flex: 1;
+  color: gold;
+  font-weight: 500;
+}
+
+.reminder-box .star {
+  position: absolute;
+  color: gold;
+  font-size: 0.8em;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.8);}
+  100% { opacity: 1; transform: scale(1.2);}
+}
+
+/* 🌟 Magical hover */
+.reminder-box:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.3),
+              0 0 45px rgba(0, 255, 0, 0.2),
+              0 0 60px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ✨ Subtle Christmas sparkle on hover */
+.reminder-box::after {
+  content: "✨";
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  font-size: 1.5em;
+  opacity: 0;
+  color: #fff;
+  text-shadow: 0 0 8px #ff0000, 0 0 12px #00ff00;
+  transition: opacity 0.6s ease;
+}
+
+.reminder-box:hover::after {
+  opacity: 1;
+  animation: sparkle 1.5s infinite ease-in-out;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.8; }
+  50% { transform: rotate(20deg) scale(1.3); opacity: 1; }
+}
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+  .reminder-box h3 {
+    text-align: center;
+    color: #fdfdfd;
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    margin-bottom: 30px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1em;
+    margin: 0;
+  }
+
+  ul li {
+    margin: 10px 0;
+    padding: 8px 10px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    animation: softFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+
+  ul li:hover {
+    transform: scale(1.02);
+  }
+
+  ul li b {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+    font-weight: 200;
+  }
+
+  .link-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 40px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.2);
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .link-btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  }
+
+  /* ❄ Snow */
+  @keyframes snow {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  .snowflake {
+    position: fixed;
+    top: -10px;
+    color: #fff;
+    font-size: 1.1em;
+    text-shadow: 0 0 4px rgba(255,255,255,0.6);
+    animation: snow linear infinite;
+    z-index: 999;
+    pointer-events: none;
+  }
+.date-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.date-list li {
+  margin: 5px 0;
+  padding: 10px 10px;
+  font-size: 1.1em;
+  color: #fff7e6;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle warm glow on hover */
+.date-list li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4),
+              0 0 35px rgba(255, 223, 100, 0.3);
+}
+
+/* ✨ pure golden shimmer for the date */
+.date {
+  font-weight: bold;
+  background: linear-gradient(90deg, #f9d976, #f39c12, #fff8b3, #f9d976);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: goldShimmer 3s linear infinite;
+
+}
+
+@keyframes goldShimmer {
+  to { background-position: 250% center; }
+}
+
+@keyframes goldPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 8px #ffe27a, 0 0 15px #ffd700; }
+  50% { opacity: 0.9; text-shadow: 0 0 12px #fff3b0, 0 0 25px #ffdf70; }
+}
+.date-list li {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.item {
+  flex: 1;   text-align: justify; 
+  padding-left: 15px; 
+  color: gold;
+  font-weight: 200;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎄 KRIS KRINGLE 🎅</h1>
+  <h2>Gentle Reminders</h2>
+  <div class="no-food">🚫 NO FOOD / DRINKS ALLOWED 🚫</div>
+</header>
+
+<div class="reminder-box">
+  <h3>🎁 Don’t forget to bring something...</h3>
+  <ul class="date-list">
+  <li>
+    <span class="date">💗 November 03</span>
+    <span class="item"><b>Something</b> Wearable</span>
+  </li>
+  <li>
+    <span class="date">📏 November 10</span>
+    <span class="item"><b>Something</b> You can Display</span>
+  </li>
+  <li>
+    <span class="date">🧸 November 17</span>
+    <span class="item"><b>Something</b> Colorful</b></span>
+  </li>
+  <li>
+    <span class="date">🍬 November 24</span>
+    <span class="item"><b>Something</b> Playable</b></span>
+  </li>
+  <li>
+    <span class="date">🎁 December 01</span>
+    <span class="item"><b>Something</b> Soft</b></span>
+  </li>
+  <li>
+    <span class="date">✨ December 08</span>
+    <span class="item"><b>Something</b> Inspirational</b></span>
+  </li>
+</ul>
+
+  <center>
+    <a href="./manito-manita.html" class="link-btn">🎅 Proceed to MANITO - MANITA 2025</a>
+  </center>
+
+</div>
+
+<script>
+  // ❄ Snowfall
+  const snowflakes = 35;
+  for (let i = 0; i < snowflakes; i++) {
+    const snow = document.createElement('div');
+    snow.classList.add('snowflake');
+    snow.textContent = '❅';
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.animationDuration = (Math.random() * 6 + 5) + 's';
+    snow.style.animationDelay = Math.random() * 5 + 's';
+    snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+    document.body.appendChild(snow);
+  }
+const box = document.querySelector('.reminder-box');
+for(let i=0;i<15;i++){
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.textContent = '✦';
+  star.style.top = Math.random()*100 + '%';
+  star.style.left = Math.random()*100 + '%';
+  box.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
