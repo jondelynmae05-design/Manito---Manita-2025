@@ -214,24 +214,31 @@
   50% { transform: translate(10px,-10px) scale(1.2); opacity: 1; }
   100% { transform: translate(0,0) scale(0.8); opacity: 0.3; }
 }
-
-
-.santa {
+/* Lantern style */
+.lantern {
   position: fixed;
-  bottom: 30px;
-  left: 30px;
-  width: 120px;
-  height: 120px;
-  background: url('https://media.giphy.com/media/26BRq6z5HjLchfL96/giphy.gif') no-repeat center/contain;
-  animation: santaFloat 4s ease-in-out infinite;
-  z-index: 50;
+  width: 50px;      /* small-medium size */
+  height: 70px;
+  background: radial-gradient(circle at 50% 20%, #ffcc00, #ff6600);
+  border-radius: 15px 15px 25px 25px;
+  box-shadow: 0 0 8px #ffcc66, 0 0 15px #ff9900 inset;
+  z-index: 2; /* behind cards */
+  filter: blur(2px);
+  opacity: 0.6; /* slightly transparent */
+  animation: floatSway linear infinite;
 }
 
-/* 🎄 Gentle floating motion */
-@keyframes santaFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Floating + swaying animation */
+@keyframes floatSway {
+  0%   { transform: translate(0px, 0px) rotate(-2deg); opacity: 0.5; }
+  25%  { transform: translate(8px, -25vh) rotate(1deg); opacity: 0.6; }
+  50%  { transform: translate(-8px, -50vh) rotate(-1deg); opacity: 0.5; }
+  75%  { transform: translate(8px, -75vh) rotate(2deg); opacity: 0.6; }
+  100% { transform: translate(0px, -100vh) rotate(-2deg); opacity: 0; }
 }
+
+
+/</style>
 
 
 </style>
@@ -243,8 +250,10 @@
   <h2>Jingle Reminder</h2>
   <div class="no-food">🚫 NO FOOD / DRINKS ALLOWED 🚫</div>
 </header>
+<!-- Floating ornament -->
 
-<div class="santa"></div>
+<!-- Lantern container -->
+<div id="lanterns"></div>
 
  
 <div class="reminder-box">
@@ -312,15 +321,29 @@
   document.body.appendChild(snow);
 }
 
- const card = document.querySelector('.reminder-box');
-for (let i = 0; i < 15; i++) {
-  const sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.textContent = '✦'; // you can also use ✨
-  sparkle.style.top = Math.random() * 90 + '%';
-  sparkle.style.left = Math.random() * 90 + '%';
-  sparkle.style.animationDelay = Math.random() * 3 + 's';
-  card.appendChild(sparkle);
+// Generate multiple lanterns more spaced out
+const lanternCount = 50;
+const lanternsContainer = document.getElementById('lanterns');
+
+for (let i = 0; i < lanternCount; i++) {
+  const lantern = document.createElement('div');
+  lantern.classList.add('lantern');
+
+  // Random horizontal starting positions spread out
+  const leftSide = Math.random() * (window.innerWidth * 0.4);
+  const rightSide = Math.random() * (window.innerWidth * 0.4) + (window.innerWidth * 0.6);
+  const x = Math.random() < 0.5 ? leftSide : rightSide;
+
+  // Random vertical starting position (below screen)
+  const y = window.innerHeight + Math.random() * 200;
+
+  lantern.style.left = `${x}px`;
+  lantern.style.top = `${y}px`;
+
+  // Random animation duration for natural look
+  lantern.style.animationDuration = `${8 + Math.random() * 6}s`;
+
+  lanternsContainer.appendChild(lantern);
 }
 
 </script>

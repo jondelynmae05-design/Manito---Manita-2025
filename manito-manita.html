@@ -52,14 +52,13 @@
     text-shadow: 0 0 10px rgba(255,255,255,0.4);
   }
 .kris-kringle {
-    position: fixed;
-    top: calc(var(--header-height)  2px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
-    animation: glowPulse 5s infinite ease-in-out;
-  }
-
+  position: fixed;
+  top: calc(var(--header-height) - 20px); /* ⬆ moves it upward */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  animation: glowPulse 5s infinite ease-in-out;
+}
   .kris-kringle a {
     text-decoration: underline;
     color: gold;
@@ -77,18 +76,17 @@
     0%, 100% { text-shadow: 0 0 8px gold, 0 0 12px #ffdf70; }
     50% { text-shadow: 0 0 15px gold, 0 0 25px #ffea94; }
   }
-
-
-.magic-line {
+/* 🌫️ Invisible fade portal line (fixed below button) */
+  .fade-portal {
     position: fixed;
-    top: var(--header-height);
-    left: 10%;
+    top: 120px; /* where the cards start vanishing */
+    left: 0;
     width: 100%;
-    height:1 px;
-    background: linear-gradient(90deg, transparent, gold, transparent);
-    box-shadow: 0 0 15px gold;
-    z-index: 5;
+    height: 60px;
+    pointer-events: none;
+    z-index: 100;
   }
+
 
 /* Content wrapper */
   .content {
@@ -117,7 +115,7 @@
   /* 🎁 Card */
   .card {
     width: 380px;
-    height: 440px;
+    height: 420px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 25px;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -127,7 +125,7 @@
     text-align: center;
     transition: all 0.4s ease;
     position: relative;
-    top: 80px; /* adjust this value to move down */
+    top: 100px; /* adjust this value to move down */
   }
 
   .card:hover {
@@ -281,7 +279,7 @@ transform: translateX(-52%) translateY(-20px);
 /* 🎄 Gift Status Dots — perfectly centered and non-intrusive */
 .gift-status {
   position: absolute;
-  bottom: 22px; /* stays just below the wishes inside the card */
+  bottom: 15px; /* stays just below the wishes inside the card */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -293,7 +291,7 @@ transform: translateX(-52%) translateY(-20px);
 }
 
 .gift-dot {
-  font-size: 1.5em;
+  font-size: 1.3em;
   filter: drop-shadow(0 0 0px gold);
   animation: twinkleGift 3s ease-in-out infinite;
 }
@@ -472,7 +470,6 @@ transform: translateX(-52%) translateY(-20px);
   transform: scale(1.06);
   animation: sparkle 2s infinite ease-in-out;
 }
-
 </style>
 </head>
 <body>
@@ -483,7 +480,8 @@ transform: translateX(-52%) translateY(-20px);
   <h2>Turning little wishes into lasting memories.</h2>
 </header>
 
-<div class="magic-line"></div>
+<!-- ❄️ Snowflakes -->
+<div class="snow"></div>
 <div class="content">
 
     <!-- 🔗 Fixed KRIS KRINGLE Button -->
@@ -491,6 +489,8 @@ transform: translateX(-52%) translateY(-20px);
     <a href="index.html">⬅ KRIS KRINGLE</a>
   </div>
 
+<!-- Invisible portal line -->
+<div class="fade-portal"></div>
 
   <div class="glow-line"></div>
 
@@ -508,8 +508,10 @@ transform: translateX(-52%) translateY(-20px);
 
         <p>Top 3 Wishes</p> <div class="wish-items"> <div class="wish">
 
-        <img src=".png"> <span class="wish-name"></span>
-        <span class="wish-extra"></span></div>  <div class="wish"> <img src=".png">
+        <img src="Shoes.png"><div class="sticky-note">SHOULD BE BLACK ONLY</div>
+ <span class="wish-name">SHOES</span>
+        <span class="wish-extra"></span></div>  
+         <div class="wish"> <img src=".png">
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -519,9 +521,9 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 <div class="gift-status">
-  <span class="gift-dot">❓</span>
-  <span class="gift-dot">❓</span>
-  <span class="gift-dot">❓</span>
+  <span class="gift-dot">🎁</span>
+  <span class="gift-dot">🎁</span>
+  <span class="gift-dot">😢</span>
   <span class="gift-dot">❓</span>
   <span class="gift-dot">❓</span>
   <span class="gift-dot">❓</span>
@@ -1539,31 +1541,21 @@ document.querySelectorAll('.card').forEach(card => {
     card.appendChild(sparkle);
   }
 });
-// ✨ Fade out cards when they approach the header line
-  const headerHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-height'));
-  const fadeZone = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fade-zone'));
-  const cards = document.querySelectorAll('.card');
-
+// 🌫️ Portal fade logic
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
+    const cards = document.querySelectorAll('.card');
+    const portalLine = 100//stance from top where they vanish
     cards.forEach(card => {
       const rect = card.getBoundingClientRect();
-      const distanceFromTop = rect.top;
-
-      // fade out when near top
-      if (distanceFromTop < fadeZone) {
-        const opacity = Math.max(0, (distanceFromTop - 20) / fadeZone);
-        card.style.opacity = opacity;
-        card.style.transform = `scale(${0.9 + opacity * 0.1})`;
+      if (rect.top < portalLine) {
+        card.style.opacity = 0;
+        card.style.transform = 'scale(0.9)';
       } else {
         card.style.opacity = 1;
         card.style.transform = 'scale(1)';
       }
     });
   });
-
-
 </script>
-
 </body>
 </html>
