@@ -6,8 +6,8 @@
 <title>MANITO - MANITA 2025</title>
 <style>
 :root {
-    --header-height: 120px; /* header area height */
-    --fade-zone: 140px;     /* how far from the top to start fading */
+    --header-height: 150px; /* header area height */
+    --fade-zone: 100px;     /* how far from the top to start fading */
     --bg-top: #3a1c0b;
     --bg-bottom: #150a04;
   }
@@ -19,7 +19,7 @@
     background: radial-gradient(circle at top, #3a1c0b, #150a04 80%);
     color: #fff;
     display: flex;
-    flex-direction: column;
+    flex-direction: center;
     align-items: center;
     overflow-x: hidden;
   }
@@ -92,7 +92,7 @@
 
 /* Content wrapper */
   .content {
-    margin-top: calc(var(--header-height) + 60px);
+    margin-top: calc(var(--header-height) + 20px);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -111,13 +111,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
+    gap: 60px;
   }
 
   /* 🎁 Card */
   .card {
-    width: 350px;
-    height: 400px;
+    width: 380px;
+    height: 440px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 25px;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -127,6 +127,7 @@
     text-align: center;
     transition: all 0.4s ease;
     position: relative;
+    top: 80px; /* adjust this value to move down */
   }
 
   .card:hover {
@@ -231,7 +232,7 @@ transform: translateX(-52%) translateY(-20px);
     top: 0;
     left: 0;
     width: 100%;
-    height: 25px;
+    height: 20px;
     background: repeating-linear-gradient(
       45deg,
       #ff0000,
@@ -241,7 +242,20 @@ transform: translateX(-52%) translateY(-20px);
     );
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+ animation: moveCane 3s linear infinite, glowGarland 1s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
   }
+
+/* 🎅 Smooth endless movement */
+@keyframes moveCane {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 0; } /* seamless scroll */
+}
+/* 🍭 Animate candy cane lines */
+@keyframes moveCane {
+  from { background-position: 0 0; }
+  to { background-position: 100px 0; }
+}
 
   /* 🧑‍🎄 Participant photo */
   .photo {
@@ -264,7 +278,36 @@ transform: translateX(-52%) translateY(-20px);
               0 0 80px rgba(0, 255, 0, 0.3),
               0 0 120px rgba(255, 255, 0, 0.2);
 }
+/* 🎄 Gift Status Dots — perfectly centered and non-intrusive */
+.gift-status {
+  position: absolute;
+  bottom: 22px; /* stays just below the wishes inside the card */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  pointer-events: none; /* ensures hover on wishes still works */
+}
 
+.gift-dot {
+  font-size: 1.5em;
+  filter: drop-shadow(0 0 0px gold);
+  animation: twinkleGift 3s ease-in-out infinite;
+}
+
+@keyframes twinkleGift {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
   /* Name above card */
   .name {
     font-size: 1.4em;
@@ -292,18 +335,26 @@ transform: translateX(-52%) translateY(-20px);
     display: flex;
     flex-direction: column;
     align-items: center;
+
   }
 
-  .wish img {
+ /* Only target wish images that actually have a src attribute */
+.wish img[src]:not([src=""]) {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    transition: transform 0.3s ease;
-  }
+    border-radius: 12px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
 
-  .wish img:hover {
-    transform: scale(2.50);
-  }
+/* Zoom on hover for images that exist */
+.wish img[src]:not([src=".png"]):hover {
+    transform: scale(2.5);
+    z-index: 10;
+  \    position: relative;
+}
+
 
   .wish-name {
     font-size: 0.85em;
@@ -335,6 +386,21 @@ transform: translateX(-52%) translateY(-20px);
     transition: color 0.3s ease;
   }
 
+
+@keyframes twinkleGift {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+@keyframes glowGift {
+  from { text-shadow: 0 0 5px gold, 0 0 10px white; }
+  to { text-shadow: 0 0 15px gold, 0 0 25px white; }
+}
   .wish-link:hover {
     color: #66ffff;
     text-decoration: underline;
@@ -429,23 +495,38 @@ transform: translateX(-52%) translateY(-20px);
   <div class="glow-line"></div>
 
   <!-- 🎁 PARTICIPANT CARDS -->
+
   <div class="village">
+
+
+
 
     <!-- Example Card -->
     <div class="card">
       <div class="name">✨ ALFRED ✨</div> <img src="Alfred.jpg" 
         alt="Alfred" class="photo"> <div class="wishlist">
-        <p>Top 3 Wishes</p> <div class="wish-items"> <div class="wish">
-          <img src="shoes.png"> <span class="wish-name">SHOES</span><div class="sticky-note">Please color BLACK AND WHITE ONLY! Size 40-41 ONLY. THANK YOU.</div>
-        <span class="wish-extra"></span></div>  <div class="wish"> <img src="Headphone.png"><div class="sticky-note">I WANT COLOR BLACK. NO OTHER COLOR.</div>
 
-            <span class="wish-name">Headphone</span>
+        <p>Top 3 Wishes</p> <div class="wish-items"> <div class="wish">
+
+        <img src=".png"> <span class="wish-name"></span>
+        <span class="wish-extra"></span></div>  <div class="wish"> <img src=".png">
+            <span class="wish-name"></span>
             <a href=""></a>
           </div>
 
           <div class="wish">
             <img src=".png">
             <span class="wish-name"></span>
+
+<div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
 
           </div>
 
@@ -467,7 +548,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -476,8 +557,15 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
 
-
-          </div>
+<div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
 
         </div>
       </div>
@@ -497,7 +585,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -506,9 +594,15 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
 
-
-
-          </div>
+<div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
 
         </div>
       </div>
@@ -529,7 +623,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -539,7 +633,15 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+       <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
 
         </div>
       </div>
@@ -560,7 +662,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -571,7 +673,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -593,7 +704,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -603,7 +714,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -624,7 +744,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -633,7 +753,16 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -654,7 +783,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -665,7 +794,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -686,7 +824,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -697,7 +835,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -718,7 +865,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -728,7 +875,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -749,7 +905,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -760,7 +916,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -781,7 +946,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -791,7 +956,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
+<div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
 </div>
+</div>
+
 
         </div>
       </div>
@@ -812,7 +986,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -822,7 +996,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -843,7 +1026,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -852,7 +1035,16 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
 
-          </div>
+      <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -873,7 +1065,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -884,7 +1076,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -905,7 +1106,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -916,7 +1117,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -937,7 +1147,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -948,7 +1158,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -969,7 +1188,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -979,7 +1198,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1000,7 +1228,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -1010,7 +1238,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+        <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
           <div class="wish">
             <img src="headphone.png" alt="headphone">
@@ -1036,7 +1273,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -1046,7 +1283,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1067,7 +1313,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -1077,7 +1323,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1098,7 +1353,7 @@ transform: translateX(-52%) translateY(-20px);
           </div>
 
           <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
+            <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <a href=""></a>
           </div>
@@ -1108,7 +1363,16 @@ transform: translateX(-52%) translateY(-20px);
             <span class="wish-name"></span>
 
 
-          </div>
+       <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1140,7 +1404,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+         <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1172,7 +1445,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1204,7 +1486,16 @@ transform: translateX(-52%) translateY(-20px);
 
 
 
-          </div>
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
 
         </div>
       </div>
@@ -1215,17 +1506,27 @@ transform: translateX(-52%) translateY(-20px);
 
 <script>
   // ❄ Snowfall
-  const snowflakes = 50;
+  const snowflakes = 100;
   for (let i = 0; i < snowflakes; i++) {
-    const snow = document.createElement('div');
-    snow.classList.add('snowflake');
-    snow.textContent = '❅';
-    snow.style.left = Math.random() * 100 + 'vw';
-    snow.style.animationDuration = (Math.random() * 6 + 4) + 's';
-    snow.style.animationDelay = Math.random() * 5 + 's';
-    snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
-    document.body.appendChild(snow);
-  }
+  const snow = document.createElement('div');
+  snow.classList.add('snowflake');
+  snow.textContent = '❅';
+
+  // Random horizontal position
+  snow.style.left = Math.random() * 100 + 'vw';
+
+  // Random size
+  snow.style.fontSize = (Math.random() * 10 + 8) + 'px';
+
+  // Random speed
+  const duration = (Math.random() * 6 + 5) + 's';
+  snow.style.animationDuration = duration;
+
+  // Negative delay so snow is already mid-animation
+  snow.style.animationDelay = (-Math.random() * parseFloat(duration)) + 's';
+
+  document.body.appendChild(snow);
+}
 
 // ✨ Sparkle Generator
 document.querySelectorAll('.card').forEach(card => {
