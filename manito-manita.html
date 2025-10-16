@@ -53,12 +53,17 @@
   }
 .kris-kringle {
   position: fixed;
-  top: calc(var(--header-height) - 20px); /* ⬆ moves it upward */
+  right: calc(var(--header-height) - 900px); /* ⬆ moves it upward */
   left: 50%;
+ top: 25px;
   transform: translateX(-50%);
   z-index: 20;
   animation: glowPulse 5s infinite ease-in-out;
+z-index: 9999;             /* makes sure it's above everything */
+  pointer-events: auto;      /* allows clicks */
+
 }
+
   .kris-kringle a {
     text-decoration: underline;
     color: gold;
@@ -115,7 +120,7 @@
   /* 🎁 Card */
   .card {
     width: 380px;
-    height: 420px;
+    height: 440px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 25px;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -127,6 +132,12 @@
     position: relative;
     top: 100px; /* adjust this value to move down */
   }
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* spacing between cards */
+}
 
   .card:hover {
     transform: scale(1.05);
@@ -183,7 +194,7 @@ transform: translateX(-52%) translateY(-20px);
 }
 .card:hover .name {
   animation: sparkle 1.5s infinite ease-in-out;
-}  }
+}  
 
   /* ❄ Snow */
   .snowflake {
@@ -368,41 +379,30 @@ transform: translateX(-52%) translateY(-20px);
 
   .wish-extra {
     display: block;
-    font-size: 0.75em;
-    color: #ffcccc;
+    font-size: 0.50em;
+    color: #ffffff;
     font-style: italic;
     opacity: 0.7;
     line-height: 1.1em;
   }
 
   .wish-link {
-    display: inline-block;
-    font-size: 0.75em;
-    color: #99ccff;
-    text-decoration: none;
-    margin-top: 3px;
-    transition: color 0.3s ease;
-  }
-
-
-@keyframes twinkleGift {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
+  display: inline-block;
+  font-size: 0.9em;               /* adjust size */
+  color: #ffd700;                 /* gold color */
+  text-decoration: underline;     /* underline for visibility */
+  margin-top: 5px;
+  padding: 5px 10px;
+    border-radius: 8px;
+  transition: all 0.3s ease;
 }
-@keyframes glowGift {
-  from { text-shadow: 0 0 5px gold, 0 0 10px white; }
-  to { text-shadow: 0 0 15px gold, 0 0 25px white; }
+
+.wish-link:hover {
+  color: #fff;
+  background: rgba(255, 215, 0, 0.3);
+  transform: scale(1.05);
 }
-  .wish-link:hover {
-    color: #66ffff;
-    text-decoration: underline;
-  }
+
 
   /* Hover effect */
   .wish:hover .wish-name {
@@ -508,22 +508,28 @@ transform: translateX(-52%) translateY(-20px);
 
         <p>Top 3 Wishes</p> <div class="wish-items"> <div class="wish">
 
-        <img src=".png"><div class="sticky-note"></div>
- <span class="wish-name"></span>
-        <span class="wish-extra"></span></div>  
-         <div class="wish"> <img src=".png">
-            <span class="wish-name"></span>
-            <a href=""></a>
+        <img src="Shoes.png"><div class="sticky-note">SHOULD BE BLACK ONLY</div>
+ <span class="wish-name">SHOES</span>
+        <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+</div>  
+
+
+         <div class="wish"> <img src="Headphone.png">
+            <span class="wish-name">Headphone</span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
-            <img src=".png">
-            <span class="wish-name"></span>
+            <img src="Shirt.png">
+            <span class="wish-name">Shirt</span>
+<a href="https://vt.tiktok.com/ZSH7ukcQf3kRm-FXzOl/"class="wish-link"target="_blank">Tiktok SHop</a>
 
 <div class="gift-status">
-  <span class="gift-dot">❓</span>
-  <span class="gift-dot">❓</span>
-  <span class="gift-dot">❓</span>
+  <span class="gift-dot">🎁</span>
+  <span class="gift-dot">🎁</span>
+  <span class="gift-dot">😢</span>
   <span class="gift-dot">❓</span>
   <span class="gift-dot">❓</span>
   <span class="gift-dot">❓</span>
@@ -547,17 +553,20 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
 
 <div class="gift-status">
   <span class="gift-dot">❓</span>
@@ -580,21 +589,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-             <div class="wish">
+            <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 <div class="gift-status">
   <span class="gift-dot">❓</span>
@@ -622,17 +635,20 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
 
 
        <div class="gift-status">
@@ -661,17 +677,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -699,21 +719,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-          <div class="wish">
+           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
           <div class="gift-status">
@@ -739,21 +763,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-         <div class="wish">
+       <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
           <div class="gift-status">
   <span class="gift-dot">❓</span>
@@ -782,17 +810,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -819,21 +851,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-          <div class="wish">
+           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -864,17 +900,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
           <div class="gift-status">
@@ -904,17 +944,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -941,21 +985,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-           <div class="wish">
+         <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 <div class="gift-status">
@@ -981,21 +1029,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-        <div class="wish">
+         <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
          <div class="gift-status">
@@ -1025,17 +1077,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
       <div class="gift-status">
   <span class="gift-dot">❓</span>
@@ -1059,22 +1115,24 @@ transform: translateX(-52%) translateY(-20px);
       <div class="wishlist">
         <p>Top 3 Wishes</p>
         <div class="wish-items">
-
-         <div class="wish">
+ <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
 
 
 
@@ -1101,22 +1159,24 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-           <div class="wish">
+            <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-
+<a href=""class="wish-link"target="_blank"></a>
 
 
           <div class="gift-status">
@@ -1146,17 +1206,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -1187,17 +1251,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
          <div class="gift-status">
@@ -1223,21 +1291,24 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-            <div class="wish">
+           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
 
 
         <div class="gift-status">
@@ -1251,8 +1322,7 @@ transform: translateX(-52%) translateY(-20px);
 </div>
 
 
-         
-
+        
         </div>
       </div>
     </div>
@@ -1265,21 +1335,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-   <div class="wish">
+    <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
          <div class="gift-status">
@@ -1309,17 +1383,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
          <div class="gift-status">
@@ -1349,17 +1427,21 @@ transform: translateX(-52%) translateY(-20px);
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
-            <a href=""></a>
+        <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
        <div class="gift-status">
@@ -1385,21 +1467,24 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-           <div class="wish">
+          <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
-          </div>
+<a href=""class="wish-link"target="_blank"></a>
 
-          <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
-            <a href=""></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+        <a href=""class="wish-link"target="_blank"></a>
+          </div>
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
 
 
 
@@ -1426,21 +1511,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-            <div class="wish">
+           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
-          </div>
+<a href=""class="wish-link"target="_blank"></a>
 
-          <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
-            <a href=""></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+        <a href=""class="wish-link"target="_blank"></a>
+          </div>
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -1467,21 +1556,25 @@ transform: translateX(-52%) translateY(-20px);
         <p>Top 3 Wishes</p>
         <div class="wish-items">
 
-            <div class="wish">
+             <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
             <span class="wish-extra"></span>
-          </div>
+<a href=""class="wish-link"target="_blank"></a>
 
-          <div class="wish">
-            <img src="png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
-            <a href=""></a>
           </div>
 
           <div class="wish">
             <img src=".png"><div class="sticky-note"></div>
             <span class="wish-name"></span>
+        <a href=""class="wish-link"target="_blank"></a>
+          </div>
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
 
 
 
@@ -1555,7 +1648,4 @@ document.querySelectorAll('.card').forEach(card => {
   });
 </script>
 </body>
-
 </html>
-
-
