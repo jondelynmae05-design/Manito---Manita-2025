@@ -180,7 +180,26 @@
   /* MANITO-MANITA button */
   .manito-manita {
     text-align: center;
-    margin: 20px 0;
+    margin: 5px 0;
+ animation: glowPulse 5s infinite ease-in-out;
+z-index: 9999;             /* makes sure it's above everything */
+  pointer-events: auto;      /* allows clicks */
+
+.manito-manita a {
+    text-decoration: underline;
+    color: gold;
+        padding: 8px 18px;
+    
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+
+
+  }
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 8px gold, 0 0 12px #ffdf70; }
+    50% { text-shadow: 0 0 15px gold, 0 0 25px #ffea94; }
   }
 
   /* ❄ Snow animation */
@@ -294,7 +313,7 @@
 
 <!-- MANITO-MANITA link centered and glowing -->
 <div class="manito-manita">
-  <a href="./manito-manita.html">Proceed to MANITO - MANITA 2025</a>
+  <a href="./manito-manita.html">MANITO - MANITA 2025</a>
 </div>
 
 <script>
@@ -350,4 +369,3 @@ for (let i = 0; i < lanternCount; i++) {
 
 </body>
 </html>
-
