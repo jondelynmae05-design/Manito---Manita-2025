@@ -329,16 +329,20 @@ transform: translateX(-52%) translateY(-20px);
 
   /* Wishlist */
   .wishlist p {
-    font-size: 1em;
-    color: #d9ffd1;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
+  font-size: 1em;
+  color: #d9ffd1;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-top: 8px; /* 👈 move text upward */
+  text-align: center; /* optional: center it */
+
+}
+
 
   .wish-items  {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 25px;
   }
 
   .wish {
@@ -352,7 +356,7 @@ transform: translateX(-52%) translateY(-20px);
 .wish img[src]:not([src=""]) {
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 12px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
@@ -360,23 +364,24 @@ transform: translateX(-52%) translateY(-20px);
 
 /* Zoom on hover for images that exist */
 .wish img[src]:not([src=".png"]):hover {
-    transform: scale(2.5);
+    transform: scale(3);
     z-index: 10;
   \    position: relative;
 }
 
 
   .wish-name {
-    font-size: 0.85em;
-    color: #fff9d6;
-    margin-top: 8px;
-    text-shadow: 0 0 6px rgba(255,255,255,0.7);
-    text-align: center;
-    max-width: 75px;
-    word-wrap: break-word;
-    white-space: normal;
-    line-height: 1.2em;
-  }
+  display: inline-block;
+  font-size: 0.8em;
+  color: #fff9d6;
+  margin-top: 8px;
+  text-shadow: 0 0 6px rgba(255,255,255,0.7);
+  text-align: center;
+  white-space: nowrap;   /* 💫 keeps it all in one line */
+  overflow: hidden;      /* hides overflow text if too long */
+  text-overflow: ellipsis; /* adds ... if it’s too long */
+  max-width: 120px;      /* adjust depending on your layout */
+}
 
   .wish-extra {
     display: block;
@@ -1037,10 +1042,10 @@ transform: translateX(-52%) translateY(-20px);
         <div class="wish-items">
 
          <div class="wish">
-            <img src="Corolla Shoes.png"><div class="sticky-note">SIZE 36 </div>
-            <span class="wish-name">Corolla Shoes</span>
+            <img src="Corolla Shoes.png"><div class="sticky-note">FOR SIZE 36</div>
+            <span class="wish-name">COROLLA SHOES</span>
             <span class="wish-extra"></span>
-<a href=""class="wish-link"target="_blank"></a>
+<a href="https://vt.tiktok.com/ZSHvMqChWhBY7-2xwAe/"class="wish-link"target="_blank">Tiktok Shop</a>
 
           </div>
 
@@ -1744,5 +1749,4 @@ document.querySelectorAll('.card').forEach(card => {
   });
 </script>
 </body>
-
 </html>
