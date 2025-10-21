@@ -16,7 +16,7 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 60px 20px;
-    background: radial-gradient(circle at top, #3a1c0b, #150a04 80%);
+    background: radial-gradient(circle at top center, #2b1508 0%, #1a0d05 40%, #100803 120%);
     color: #fff;
     display: flex;
     flex-direction: center;
@@ -111,7 +111,7 @@ z-index: 9999;             /* makes sure it's above everything */
 
   /* ✨ Container */
   .village {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     justify-content: center;
     gap: 60px;
@@ -119,8 +119,8 @@ z-index: 9999;             /* makes sure it's above everything */
 
   /* 🎁 Card */
   .card {
-    width: 380px;
-    height: 440px;
+    width: 500px;
+    height: 445px;
 
     border-radius: 25px;
     border: 2px solid rgba(255, 255, 255, 0.15);
@@ -130,7 +130,7 @@ z-index: 9999;             /* makes sure it's above everything */
     text-align: center;
     transition: all 0.4s ease;
     position: relative;
-    top: 90px; /* adjust this value to move down */
+    top: 80px; /* adjust this value to move down */
 
   }
 .cards-container {
@@ -269,8 +269,8 @@ transform: translateX(-52%) translateY(-20px);
 
   /* 🧑‍🎄 Participant photo */
   .photo {
-    width: 170px;
-    height: 170px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
     border-radius: 15px;
     border: 3px solid rgba(255, 255, 255, 0.7);
@@ -283,15 +283,16 @@ transform: translateX(-52%) translateY(-20px);
   transition: all 0.4s ease;
 }
 .photo:hover {
-  filter: brightness(1.2) saturate(1.3);
-  box-shadow: 0 0 40px rgba(255, 0, 0, 0.4),
-              0 0 80px rgba(0, 255, 0, 0.3),
-              0 0 120px rgba(255, 255, 0, 0.2);
-}
-/* 🎄 Gift Status Dots — perfectly centered and non-intrusive */
+  filter: brightness(1.4) saturate(1.3);
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 25px rgba(255, 255, 150, 0.8),
+    0 0 60px rgba(255, 215, 0, 0.5),
+    0 0 100px rgba(255, 0, 0, 0.3);
+}/* 🎄 Gift Status Dots — perfectly centered and non-intrusive */
 .gift-status {
   position: absolute;
-  bottom: 15px; /* stays just below the wishes inside the card */
+  bottom: 10px; /* stays just below the wishes inside the card */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -303,7 +304,7 @@ transform: translateX(-52%) translateY(-20px);
 }
 
 .gift-dot {
-  font-size: 1.3em;
+  font-size: 1.2em;
   filter: drop-shadow(0 0 0px gold);
   animation: twinkleGift 3s ease-in-out infinite;
 }
@@ -333,7 +334,7 @@ transform: translateX(-52%) translateY(-20px);
   color: #d9ffd1;
   font-weight: 600;
   margin-bottom: 15px;
-  margin-top: 8px; /* 👈 move text upward */
+  margin-top: 2px; /* 👈 move text upward */
   text-align: center; /* optional: center it */
 
 }
@@ -342,8 +343,26 @@ transform: translateX(-52%) translateY(-20px);
   .wish-items  {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 40px;
+
+
   }
+/* Hide missing/broken wish images only */
+.wish img[src=".png"],
+.wish img[src=""],
+.wish img:not([src]) {
+  visibility: hidden;
+}
+
+/* Keep real images visible and styled */
+.wish img[src]:not([src=".png"]) {
+  width: 100px;
+  height: 95px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
 
   .wish {
     display: flex;
@@ -354,8 +373,8 @@ transform: translateX(-52%) translateY(-20px);
 
  /* Only target wish images that actually have a src attribute */
 .wish img[src]:not([src=""]) {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 95px;
     object-fit: contain;
     border-radius: 12px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -374,7 +393,7 @@ transform: translateX(-52%) translateY(-20px);
   display: inline-block;
   font-size: 0.8em;
   color: #fff9d6;
-  margin-top: 8px;
+  margin-top: 5px;
   text-shadow: 0 0 6px rgba(255,255,255,0.7);
   text-align: center;
   white-space: nowrap;   /* 💫 keeps it all in one line */
@@ -385,7 +404,7 @@ transform: translateX(-52%) translateY(-20px);
 
   .wish-extra {
     display: block;
-    font-size: 0.50em;
+    font-size: 0.20em;
     color: #ffffff;
     font-style: italic;
     opacity: 0.7;
@@ -394,18 +413,18 @@ transform: translateX(-52%) translateY(-20px);
 
   .wish-link {
   display: inline-block;
-  font-size: 0.9em;               /* adjust size */
+  font-size: 0.7.1em;               /* adjust size */
   color: #ffd700;                 /* gold color */
   text-decoration: underline;     /* underline for visibility */
-  margin-top: 5px;
+  margin-top: 1x;
   padding: 5px 10px;
-    border-radius: 8px;
+
   transition: all 0.3s ease;
 }
 
 .wish-link:hover {
   color: #fff;
-  background: rgba(255, 215, 0, 0.3);
+
   transform: scale(1.05);
 }
 
@@ -476,6 +495,44 @@ transform: translateX(-52%) translateY(-20px);
   transform: scale(1.06);
   animation: sparkle 2s infinite ease-in-out;
 }
+/* 🌍 Make layout responsive for all screen sizes */
+@media (min-width: 1600px) {
+  body {
+    font-size: 22px; /* larger base text for big screens */
+  }
+  .reminder-box {
+    max-width: 600px; /* scale the reminder box wider */
+  }
+  header h1 {
+    font-size: 3.5em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .reminder-box {
+    max-width: 90%;
+  }
+  header h1 {
+    font-size: 2.3em;
+  }
+  header h2 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  header h2 {
+    font-size: 0.9em;
+  }
+  .reminder-box {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -510,7 +567,7 @@ transform: translateX(-52%) translateY(-20px);
 
     <!-- Example Card -->
     <div class="card">
-      <div class="name">✨ ALFRED ✨</div> <img src="Alfred.jpg" 
+      <div class="name">✨ ALFRED ✨</div> <img src="Alfred2.png" 
         alt="Alfred" class="photo"> <div class="wishlist">
 
         <p>💫 Season of Wishes</p> <div class="wish-items"> <div class="wish">
@@ -551,7 +608,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ ALCHER ✨</div>
-      <img src="Alcher.jpg" alt="Alcher" class="photo">
+      <img src="Alcher2.png" alt="Alcher" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -591,7 +648,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ CHENNY ✨</div>
-      <img src="Chenny.jpg" alt="Chenny" class="photo">
+      <img src="Chenny2.png" alt="Chenny" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -633,7 +690,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ DAISY ✨</div>
-      <img src="Daisy.jpg" alt="Daisy" class="photo">
+      <img src="Daisy2.png" alt="Daisy" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -674,8 +731,54 @@ transform: translateX(-52%) translateY(-20px);
 
 <!-- Example Card -->
     <div class="card">
+      <div class="name">✨ DENNIS ✨</div>
+      <img src="Dennis2.png" alt="DENNIS" class="photo">
+      <div class="wishlist">
+        <p>💫 Season of Wishes</p>
+        <div class="wish-items">
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+            <span class="wish-extra"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
+          </div>
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+        <a href=""class="wish-link"target="_blank"></a>
+          </div>
+
+          <div class="wish">
+            <img src=".png"><div class="sticky-note"></div>
+            <span class="wish-name"></span>
+<a href=""class="wish-link"target="_blank"></a>
+
+
+
+
+          <div class="gift-status">
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+  <span class="gift-dot">❓</span>
+</div>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+<!-- Example Card -->
+    <div class="card">
       <div class="name">✨ EDDIE ✨</div>
-      <img src="Eddie.jpg" alt="Eddie" class="photo">
+      <img src="Eddie2.png" alt="Eddie" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -721,7 +824,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ GABRIEL ✨</div>
-      <img src="Gabriel.jpg" alt="Gabriel" class="photo">
+      <img src="Gabriel2.png" alt="Gabriel" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -765,7 +868,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ GILBERT ✨</div>
-      <img src="Gilbert.jpg" alt="Gilbert" class="photo">
+      <img src="Gilbert2.png" alt="Gilbert" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -808,7 +911,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JANINE ✨</div>
-      <img src="Janine.jpg" alt="Janine" class="photo">
+      <img src="Janine2.png" alt="Janine" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -853,7 +956,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JAYR ✨</div>
-      <img src="JayR.jpg" alt="JayR" class="photo">
+      <img src="JayR2.png" alt="JayR" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -898,7 +1001,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JEAN PAUL ✨</div>
-      <img src="Jean Paul.jpg" alt="Jean Paul" class="photo">
+      <img src="Jean Paul2.png" alt="Jean Paul" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -943,7 +1046,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JEREMIAH ✨</div>
-      <img src="Jeremiah.jpg" alt="Jeremiah" class="photo">
+      <img src="Jeremiah2.png" alt="Jeremiah" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -992,7 +1095,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JERIC ✨</div>
-      <img src="Jeric.jpg" alt="Jeric" class="photo">
+      <img src="Jeric2.png" alt="Jeric" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1037,7 +1140,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JONJON ✨</div>
-      <img src="JonJon.jpg" alt="JonJon" class="photo">
+      <img src="JonJon2.png" alt="JonJon" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1081,7 +1184,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JUDE ✨</div>
-      <img src="Jude.jpg" alt="Jude" class="photo">
+      <img src="Jude2.png" alt="Jude" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1125,7 +1228,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ JULIA ✨</div>
-      <img src="Julia.jpg" alt="Julia" class="photo">
+      <img src="Julia2.png" alt="Julia" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1170,7 +1273,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ KAREN ✨</div>
-      <img src="Karen.jpg" alt="Karen" class="photo">
+      <img src="Karen2.png" alt="Karen" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1213,7 +1316,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ KC ✨</div>
-      <img src="KC.jpg" alt="KC" class="photo">
+      <img src="KC2.png" alt="KC" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1256,7 +1359,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ MA. NIÑA ✨</div>
-      <img src="Ma. Niña.jpg" alt="Ma. Niña" class="photo">
+      <img src="Ma. Niña2.png" alt="Ma. Niña" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1299,7 +1402,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ MELMAR ✨</div>
-      <img src="Melmar.jpg" alt="Melmar" class="photo">
+      <img src="Melmar2.png" alt="Melmar" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1344,7 +1447,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ MHALEN ✨</div>
-      <img src="Mhalen.jpg" alt="Mhalen" class="photo">
+      <img src="Mhalen2.png" alt="Mhalen" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1388,7 +1491,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ NICHOLAS ✨</div>
-      <img src="Nicholas.jpg" alt="Nicholas" class="photo">
+      <img src="Nicholas2.png" alt="Nicholas" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1432,7 +1535,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ REX ✨</div>
-      <img src="Rex.jpg" alt="Rex" class="photo">
+      <img src="Rex2.png" alt="Rex" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1476,7 +1579,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ ROGER ✨</div>
-      <img src="Roger.jpg" alt="Roger" class="photo">
+      <img src="Roger2.png" alt="Roger" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1520,7 +1623,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ SHAMS ✨</div>
-      <img src="Shams.jpg" alt="Shams" class="photo">
+      <img src="Shams2.png" alt="Shams" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1564,7 +1667,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ SHELOU ✨</div>
-      <img src="Shelou.jpg" alt="Shelou" class="photo">
+      <img src="Shelou2.png" alt="Shelou" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1608,7 +1711,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ WAMI ✨</div>
-      <img src="Wami.jpg" alt="Wami" class="photo">
+      <img src="Wami2.png" alt="Wami" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">
@@ -1653,7 +1756,7 @@ transform: translateX(-52%) translateY(-20px);
 <!-- Example Card -->
     <div class="card">
       <div class="name">✨ YANI ✨</div>
-      <img src="Yani.jpg" alt="Yani" class="photo">
+      <img src="Yani2.png" alt="Yani" class="photo">
       <div class="wishlist">
         <p>💫 Season of Wishes</p>
         <div class="wish-items">

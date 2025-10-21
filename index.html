@@ -9,7 +9,8 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at top, #2b1508, #100803 85%);
+background: radial-gradient(circle at 50% 20%, #3a1a0b 0%, #1a0c04 40%, #0d0502 100%);
+
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -256,8 +257,45 @@ z-index: 9999;             /* makes sure it's above everything */
   100% { transform: translate(0px, -100vh) rotate(-2deg); opacity: 0; }
 }
 
+/* 🌍 Make layout responsive for all screen sizes */
+@media (min-width: 1600px) {
+  body {
+    font-size: 22px; /* larger base text for big screens */
+  }
+  .reminder-box {
+    max-width: 600px; /* scale the reminder box wider */
+  }
+  header h1 {
+    font-size: 3.5em;
+  }
+}
 
-/</style>
+@media (max-width: 1024px) {
+  .reminder-box {
+    max-width: 90%;
+  }
+  header h1 {
+    font-size: 2.3em;
+  }
+  header h2 {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+  header h2 {
+    font-size: 0.9em;
+  }
+  .reminder-box {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+</style>
 
 
 </style>
@@ -267,7 +305,7 @@ z-index: 9999;             /* makes sure it's above everything */
 <header>
   <h1>🎄 KRIS KRINGLE 🎅</h1>
   <h2>Jingle Reminder</h2>
-  <div class="no-food">🚫 NO FOOD / DRINKS ALLOWED 🚫</div>
+  <div class="no-food">🚫 FOOD AND DRINKS ARE NOT ALLOWED 🚫</div>
 </header>
 <!-- Floating ornament -->
 
@@ -338,31 +376,6 @@ z-index: 9999;             /* makes sure it's above everything */
   snow.style.animationDelay = (-Math.random() * parseFloat(duration)) + 's';
 
   document.body.appendChild(snow);
-}
-
-// Generate multiple lanterns more spaced out
-const lanternCount = 50;
-const lanternsContainer = document.getElementById('lanterns');
-
-for (let i = 0; i < lanternCount; i++) {
-  const lantern = document.createElement('div');
-  lantern.classList.add('lantern');
-
-  // Random horizontal starting positions spread out
-  const leftSide = Math.random() * (window.innerWidth * 0.4);
-  const rightSide = Math.random() * (window.innerWidth * 0.4) + (window.innerWidth * 0.6);
-  const x = Math.random() < 0.5 ? leftSide : rightSide;
-
-  // Random vertical starting position (below screen)
-  const y = window.innerHeight + Math.random() * 200;
-
-  lantern.style.left = `${x}px`;
-  lantern.style.top = `${y}px`;
-
-  // Random animation duration for natural look
-  lantern.style.animationDuration = `${8 + Math.random() * 6}s`;
-
-  lanternsContainer.appendChild(lantern);
 }
 
 </script>
