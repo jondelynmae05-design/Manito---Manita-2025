@@ -9,7 +9,7 @@
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-background: radial-gradient(circle at 50% 20%, #3a1a0b 0%, #1a0c04 40%, #0d0502 100%);
+background: radial-gradient(circle at 50% 20%, #3a1a0b 0%, #1a0c04 100%, #0d0502 100%);
 
     color: #fff;
     display: flex;
@@ -257,30 +257,6 @@ z-index: 9999;             /* makes sure it's above everything */
   100% { transform: translate(0px, -100vh) rotate(-2deg); opacity: 0; }
 }
 
-/* 🌍 Make layout responsive for all screen sizes */
-@media (min-width: 1600px) {
-  body {
-    font-size: 22px; /* larger base text for big screens */
-  }
-  .reminder-box {
-    max-width: 600px; /* scale the reminder box wider */
-  }
-  header h1 {
-    font-size: 3.5em;
-  }
-}
-
-@media (max-width: 1024px) {
-  .reminder-box {
-    max-width: 90%;
-  }
-  header h1 {
-    font-size: 2.3em;
-  }
-  header h2 {
-    font-size: 1em;
-  }
-}
 
 @media (max-width: 600px) {
   header h1 {
