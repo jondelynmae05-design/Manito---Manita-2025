@@ -347,6 +347,7 @@ transform: translateX(-52%) translateY(-20px);
     display: flex;
     justify-content: center;
     gap: 50px;
+z-index: 1; /* image stays under the note */
 
 
   }
@@ -416,10 +417,10 @@ transform: translateX(-52%) translateY(-20px);
 
   .wish-link {
   display: inline-block;
-  font-size: 0.7.1em;               /* adjust size */
+  font-size: 0.7em;               /* adjust size */
   color: #ffd700;                 /* gold color */
   text-decoration: underline;     /* underline for visibility */
-  margin-top: 3px;
+  margin-top: 2px;
   padding: 5px 10px;
 
   transition: all 0.3s ease;
@@ -454,6 +455,7 @@ transform: translateX(-52%) translateY(-20px);
     transition: all 0.4s ease;
     width: 85%;
     box-shadow: 0 0 15px rgba(255,215,0,0.4);
+z-index: 2; /* 💖 keeps note on top of image */
   }
 
   /* Only cards with images can show notes */
@@ -497,43 +499,7 @@ transform: translateX(-52%) translateY(-20px);
 .card:hover {
   transform: scale(1.06);
   animation: sparkle 2s infinite ease-in-out;
-}
-/* 🌍 Make layout responsive for all screen sizes */
-@media (min-width: 1600px) {
-  body {
-    font-size: 22px; /* larger base text for big screens */
-  }
-  .reminder-box {
-    max-width: 600px; /* scale the reminder box wider */
-  }
-  header h1 {
-    font-size: 3.5em;
-  }
-}
 
-@media (max-width: 1024px) {
-  .reminder-box {
-    max-width: 90%;
-  }
-  header h1 {
-    font-size: 2.3em;
-  }
-  header h2 {
-    font-size: 1em;
-  }
-}
-
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 1.8em;
-  }
-  header h2 {
-    font-size: 0.9em;
-  }
-  .reminder-box {
-    width: 95%;
-    padding: 15px;
-  }
 }
 
 </style>
@@ -1151,7 +1117,7 @@ transform: translateX(-52%) translateY(-20px);
 
          <div class="wish">
             <img src="Corolla Shoes.png"><div class="sticky-note">FOR SIZE 36</div>
-            <span class="wish-name">COROLLA SHOES</span>
+            <span class="wish-name"><b>COROLLA SHOES</b></span>
             <span class="wish-extra"></span>
 <a href="https://vt.tiktok.com/ZSHvMqChWhBY7-2xwAe/"class="wish-link"target="_blank">Tiktok Shop</a>
 
@@ -1239,16 +1205,16 @@ transform: translateX(-52%) translateY(-20px);
 
          <div class="wish">
             <img src="Blender.png">
-            <span class="wish-name">BLENDER</span>
+            <span class="wish-name"><b>BLENDER</b></span>
             <span class="wish-extra"></span>
 <a href=""class="wish-link"target="_blank"></a>
 
           </div>
 
           <div class="wish">
-            <img src=".png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
-        <a href=""class="wish-link"target="_blank"></a>
+            <img src="Iron.png">
+            <span class="wish-name"><b>STEAM IRON</b></span>
+        <a href="https://s.shopee.ph/20nBWzEXaj"class="wish-link"target="_blank"><b>SHOPEE</b></a>
           </div>
 
           <div class="wish">
@@ -1370,7 +1336,7 @@ transform: translateX(-52%) translateY(-20px);
 
             <div class="wish">
             <img src="Processor2.png">
-            <span class="wish-name">ELECTRIC FOOD <br>PROCESSOR</br></span>
+            <span class="wish-name"><b>ELECTRIC FOOD <br>PROCESSOR</br></b></span>
             <span class="wish-extra"></span>
 <a href=""class="wish-link"target="_blank"></a>
 
@@ -1412,22 +1378,22 @@ transform: translateX(-52%) translateY(-20px);
         <div class="wish-items">
 
          <div class="wish">
-            <img src=".png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
+            <img src="Digital Meter.png">
+            <span class="wish-name"><B>DIGITAL ELECTRIC<br>METER</br></B></span>
             <span class="wish-extra"></span>
 <a href=""class="wish-link"target="_blank"></a>
 
           </div>
 
           <div class="wish">
-            <img src=".png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
+            <img src="Rice Cooker.png">
+            <span class="wish-name"><b>MULTI PURPOSE<br>RICE COOKER</br></b></span>
         <a href=""class="wish-link"target="_blank"></a>
           </div>
 
           <div class="wish">
-            <img src=".png"><div class="sticky-note"></div>
-            <span class="wish-name"></span>
+            <img src="Drill.png">
+            <span class="wish-name"><b>DRILL<br>(ANY MODEL)</br></b></span>
 <a href=""class="wish-link"target="_blank"></a>
 
 
