@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE SHOWDOWN 2026</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+
+    --red-dark:#430910;
+    --red-deep:#26050A;
+    --red:#69151D;
+    --red-light:#8C2A30;
+
+    --cream:#F3E3C2;
+    --cream-light:#FFF4D7;
+    --paper:#E9D2A6;
+    --paper-light:#F5E5C5;
+
+    --gold:#D3AB55;
+    --gold-light:#F4DA82;
+    --gold-white:#FFF0B0;
+
+    --ink:#3C1716;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    margin:0;
+    padding:0;
+
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body{
+
+    position:relative;
+
+    font-family:"Playfair Display",serif;
+
+    color:var(--cream);
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(117,25,32,.32),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(211,171,85,.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 85%,
+            rgba(211,171,85,.07),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #160306,
+            #39080E 48%,
+            #180307
+        );
+}
+
+
+/* =========================================================
+   SUBTLE OLD FILM TEXTURE
+========================================================= */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:50;
+
+    opacity:.055;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 2px,
+            rgba(255,255,255,.25) 3px
+        );
+
+    mix-blend-mode:screen;
+}
+
+
+/* =========================================================
+   SNOW
+========================================================= */
+
+.snow{
+
+    position:fixed;
+
+    top:-20px;
+
+    z-index:30;
+
+    pointer-events:none;
+
+    color:rgba(255,244,215,.85);
+
+    user-select:none;
+
+    animation:snowFall linear infinite;
+}
+
+.s1{
+    left:4%;
+    font-size:8px;
+    animation-duration:11s;
+}
+
+.s2{
+    left:11%;
+    font-size:5px;
+    animation-duration:14s;
+    animation-delay:-3s;
+}
+
+.s3{
+    left:18%;
+    font-size:9px;
+    animation-duration:12s;
+    animation-delay:-7s;
+}
+
+.s4{
+    left:27%;
+    font-size:5px;
+    animation-duration:16s;
+    animation-delay:-5s;
+}
+
+.s5{
+    left:36%;
+    font-size:7px;
+    animation-duration:13s;
+    animation-delay:-9s;
+}
+
+.s6{
+    left:45%;
+    font-size:5px;
+    animation-duration:15s;
+    animation-delay:-2s;
+}
+
+.s7{
+    left:54%;
+    font-size:9px;
+    animation-duration:12s;
+    animation-delay:-6s;
+}
+
+.s8{
+    left:63%;
+    font-size:6px;
+    animation-duration:17s;
+    animation-delay:-10s;
+}
+
+.s9{
+    left:72%;
+    font-size:8px;
+    animation-duration:13s;
+    animation-delay:-4s;
+}
+
+.s10{
+    left:81%;
+    font-size:5px;
+    animation-duration:15s;
+    animation-delay:-8s;
+}
+
+.s11{
+    left:90%;
+    font-size:9px;
+    animation-duration:11s;
+    animation-delay:-5s;
+}
+
+.s12{
+    left:97%;
+    font-size:5px;
+    animation-duration:14s;
+    animation-delay:-11s;
+}
+
+
+@keyframes snowFall{
+
+    0%{
+
+        transform:
+            translate3d(0,-30px,0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    50%{
+
+        transform:
+            translate3d(25px,50vh,0)
+            rotate(150deg);
+
+        opacity:.7;
+    }
+
+    90%{
+        opacity:.45;
+    }
+
+    100%{
+
+        transform:
+            translate3d(-20px,110vh,0)
+            rotate(300deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   SPARKLES
+========================================================= */
+
+.sparkle{
+
+    position:fixed;
+
+    z-index:31;
+
+    pointer-events:none;
+
+    color:var(--gold-light);
+
+    font-size:10px;
+
+    text-shadow:
+        0 0 8px rgba(244,218,130,.8);
+
+    animation:sparkle 3s ease-in-out infinite;
+}
+
+.sparkle.a{
+    top:12%;
+    left:8%;
+}
+
+.sparkle.b{
+    top:23%;
+    right:7%;
+    animation-delay:1s;
+}
+
+.sparkle.c{
+    bottom:19%;
+    left:5%;
+    animation-delay:1.7s;
+}
+
+.sparkle.d{
+    bottom:26%;
+    right:6%;
+    animation-delay:2.2s;
+}
+
+.sparkle.e{
+    top:42%;
+    left:48%;
+    font-size:7px;
+    animation-delay:.5s;
+}
+
+.sparkle.f{
+    bottom:37%;
+    right:32%;
+    font-size:7px;
+    animation-delay:1.3s;
+}
+
+
+@keyframes sparkle{
+
+    0%,
+    100%{
+
+        opacity:.15;
+
+        transform:
+            scale(.65)
+            rotate(0);
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:
+            scale(1.35)
+            rotate(45deg);
+    }
+}
+
+/* =========================================================
+   TOP NAVIGATION BUTTONS
+========================================================= */
+
+.kris-kringle-btn,
+.manito-manita-btn {
+    position: fixed;
+    left: 7%;
+    
+    width: 180px;
+    height: 35px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7A2025,
+            #641B18 50%,
+            #4A0A12
+        );
+
+    color: #FFF3D2;
+
+    border: 2px solid #9A742E;
+
+    text-decoration: none;
+
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+    z-index: 9999;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 36%,
+        96% 39%,
+        96% 61%,
+        100% 64%,
+        100% 100%,
+        0 100%,
+        0 64%,
+        4% 61%,
+        4% 39%,
+        0 36%
+    );
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.35),
+        inset 0 0 0 1px rgba(255,255,255,.5);
+
+    transition:
+        background .35s ease,
+        color .35s ease,
+        transform .25s ease,
+        filter .35s ease;
+}
+
+
+/* =========================================================
+   POSITION
+========================================================= */
+
+.kris-kringle-btn {
+    top: 65px;
+}
+
+.manito-manita-btn {
+    top: 20px;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.kris-kringle-btn:hover,
+.manito-manita-btn:hover {
+
+
+
+  background:
+        linear-gradient(
+            135deg,
+            #F5E7C8,
+            #EBD2A5 50%,
+            #F3E4C5
+        );
+
+    color: #641B18;
+
+
+    transform:
+        translateX(-50%)
+        translateY(-2px);
+
+    filter:
+        drop-shadow(0 5px 8px rgba(0,0,0,.4))
+        drop-shadow(0 0 7px rgba(194,154,69,.25));
+}
+
+
+/* =========================================================
+   IMPORTANT — KEEP BOTH CENTERED
+========================================================= */
+
+.kris-kringle-btn,
+.manito-manita-btn {
+    transform: translateX(-50%);
+}
+/* =========================================================
+   CORNERS
+========================================================= */
+
+.corner{
+
+    position:fixed;
+
+    z-index:10;
+
+    width:32px;
+    height:32px;
+
+    pointer-events:none;
+
+    opacity:.5;
+}
+
+.corner::before,
+.corner::after{
+
+    content:"";
+
+    position:absolute;
+
+    background:var(--gold);
+}
+
+.corner::before{
+
+    width:32px;
+    height:1px;
+}
+
+.corner::after{
+
+    width:1px;
+    height:32px;
+}
+
+.corner-tl{
+    top:12px;
+    left:12px;
+}
+
+.corner-tr{
+    top:12px;
+    right:12px;
+    transform:rotate(90deg);
+}
+
+.corner-bl{
+    bottom:12px;
+    left:12px;
+    transform:rotate(-90deg);
+}
+
+.corner-br{
+    bottom:12px;
+    right:12px;
+    transform:rotate(180deg);
+}
+
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+.page{
+
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    padding:
+        19px
+        38px
+        5px;
+}
+
+
+/* =========================================================
+   MAIN HEADER
+========================================================= */
+
+.header{
+
+    width:100%;
+
+    flex-shrink:0;
+
+    text-align:center;
+}
+
+.header-kicker{
+
+    font-family:"Special Elite",cursive;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    color:
+        rgba(243,227,194,.68);
+
+    margin-bottom:8px;
+}
+
+.header h1{
+
+    margin:0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(31px,4vw,47px);
+
+    font-weight:700;
+
+    letter-spacing:8px;
+
+    line-height:1;
+
+    color:var(--gold-white);
+
+    text-shadow:
+
+        0 2px 0 #591019,
+
+        0 0 9px
+        rgba(244,218,130,.2);
+}
+
+.header-sub{
+
+    margin-top:5px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    color:
+        rgba(255,244,215,.72);
+}
+
+.header-decoration{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-top:5px;
+}
+
+.header-decoration::before,
+.header-decoration::after{
+
+    content:"";
+
+    width:85px;
+
+    height:1px;
+}
+
+.header-decoration::before{
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+}
+
+.header-decoration::after{
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+}
+
+.header-decoration span{
+
+    color:var(--gold-light);
+
+    font-size:11px;
+}
+
+/* =========================================================
+   ELEGANT CINEMA CREDIT JURY
+========================================================= */
+
+.jury {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 100%;
+
+    margin-top: 8px;
+    margin-bottom: 9px;
+
+    padding: 0;
+
+    text-align: center;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+/* =========================================================
+   ELEGANT VINTAGE JURY ORNAMENT
+========================================================= */
+
+.jury {
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: min(760px, 70%);
+
+    margin: 10px auto 8px;
+
+    padding: 10px 30px 7px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,240,176,.08),
+            transparent 65%
+        );
+
+    color: var(--cream-light);
+
+    overflow: visible;
+}
+
+
+/* =========================================================
+   DECORATIVE TOP
+========================================================= */
+
+.jury-ornament-top {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 8px;
+
+    letter-spacing: 7px;
+
+    color: var(--gold);
+
+    margin-bottom: 2px;
+
+    text-shadow:
+        0 0 7px rgba(211,171,85,.25);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.jury-title {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+    color: var(--gold-light);
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,.7);
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.jury-subtitle {
+
+    margin-top: 2px;
+
+    font-family:
+        "Special Elite",
+        monospace;
+
+    font-size: 6px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,244,215,.6);
+}
+
+
+/* =========================================================
+   JUDGES
+========================================================= */
+
+.jury-names {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 15px;
+
+    padding: 6px 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(67,9,16,.65) 15%,
+            rgba(67,9,16,.8) 50%,
+            rgba(67,9,16,.65) 85%,
+            transparent
+        );
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,.18);
+}
+
+
+/* GOLD ORNAMENT ABOVE NAMES */
+
+.jury-names::before {
+
+    content: "❧";
+
+    position: absolute;
+
+    left: -4px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--gold);
+
+    font-size: 15px;
+}
+
+
+/* GOLD ORNAMENT RIGHT */
+
+.jury-names::after {
+
+    content: "❧";
+
+    position: absolute;
+
+    right: -4px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%)
+        scaleX(-1);
+
+    color: var(--gold);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   JUDGE
+========================================================= */
+
+.judge {
+
+    position: relative;
+
+    padding: 0 5px;
+
+    transition:
+        transform .25s ease;
+}
+
+
+.judge:hover {
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+.judge-name {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    color: var(--cream-light);
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 5px rgba(0,0,0,.7);
+
+    transition:
+        color .25s ease;
+}
+
+
+.judge:hover .judge-name {
+
+    color: var(--gold-light);
+}
+
+
+/* =========================================================
+   DIVIDERS
+========================================================= */
+
+.judge-divider {
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 6px;
+
+    color: var(--gold);
+
+    opacity: .8;
+}
+
+
+/* =========================================================
+   BOTTOM ORNAMENT
+========================================================= */
+
+.jury-ornament-bottom {
+
+    margin-top: 4px;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 13px;
+
+    color: var(--gold);
+
+    line-height: .5;
+
+    opacity: .8;
+}
+
+/* =========================================================
+   SHOW AREA
+========================================================= */
+
+.show-area{
+
+    width:100%;
+
+    max-width:1500px;
+
+    flex:1;
+
+    min-height:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+        2px
+        0
+        3px;
+}
+
+
+/* =========================================================
+   FOUR TICKETS
+========================================================= */
+
+.teams{
+
+    width:100%;
+    height:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+
+    align-items:center;
+}
+
+
+/* =========================================================
+   TICKET
+========================================================= */
+
+.team{
+
+    position:relative;
+
+    height:min(60vh,435px);
+
+    min-height:315px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(120,72,35,.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(120,72,35,.07),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            var(--paper-light),
+            var(--paper),
+            #E4C796
+        );
+
+    color:var(--ink);
+
+    border-top:
+        5px solid
+        var(--red);
+
+    box-shadow:
+
+        0 13px 30px
+        rgba(0,0,0,.55),
+
+        0 0 0 1px
+        rgba(211,171,85,.75);
+
+    overflow:visible;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* =========================================================
+   PERFORATED TOP
+========================================================= */
+
+.team::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    top:-1px;
+
+    height:9px;
+
+    background:
+
+        radial-gradient(
+            circle at 6px 9px,
+            transparent 4px,
+            var(--red) 4.5px
+        );
+
+    background-size:12px 12px;
+
+    transform:
+        translateY(-8px);
+
+    opacity:.9;
+}
+
+
+/* =========================================================
+   PERFORATED BOTTOM
+========================================================= */
+
+.team::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:-1px;
+
+    height:9px;
+
+    background:
+
+        radial-gradient(
+            circle at 6px 0,
+            transparent 4px,
+            var(--red) 4.5px
+        );
+
+    background-size:12px 12px;
+
+    transform:
+        translateY(8px);
+
+    opacity:.8;
+}
+
+
+.team:hover{
+
+    transform:
+        translateY(-5px)
+        rotate(.25deg);
+
+    box-shadow:
+
+        0 19px 38px
+        rgba(0,0,0,.65),
+
+        0 0 18px
+        rgba(211,171,85,.15);
+}
+
+
+/* =========================================================
+   TEAM HEADER
+========================================================= */
+
+.team-header{
+
+    position:relative;
+
+    padding:
+        7px
+        8px
+        6px;
+
+    text-align:center;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #531019,
+            #711B23
+        );
+
+    color:var(--cream-light);
+
+    border-bottom:
+        1px dashed
+        rgba(244,218,130,.7);
+}
+
+
+/* ticket number */
+
+.ticket-no{
+
+    position:absolute;
+
+    top:6px;
+
+    left:8px;
+
+    font-family:"Special Elite",cursive;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    color:
+        rgba(244,218,130,.7);
+}
+
+
+/* category */
+
+.category{
+
+    font-family:"Special Elite",cursive;
+
+    font-size:7px;
+
+    letter-spacing:3px;
+
+    color:var(--gold-light);
+}
+
+
+/* symbol */
+
+.team-symbol{
+
+    margin-top:1px;
+
+    font-size:18px;
+
+    line-height:19px;
+
+    color:var(--gold-light);
+
+    text-shadow:
+        0 0 7px
+        rgba(244,218,130,.35);
+}
+
+
+/* team name */
+
+.team-name{
+
+    margin:0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:
+        clamp(16px,1.55vw,22px);
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    line-height:1.05;
+
+    color:var(--gold-white);
+}
+
+
+/* description */
+
+.team-desc{
+
+    margin-top:3px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:7px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+    color:
+        rgba(255,244,215,.78);
+}
+
+
+/* =========================================================
+   CAST
+========================================================= */
+
+.cast{
+
+    flex-shrink:0;
+
+    padding:
+        6px
+        9px
+        5px;
+
+    border-bottom:
+        1px solid
+        rgba(60,23,22,.2);
+}
+
+
+.cast-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-bottom:3px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:#5B161A;
+}
+
+.cast-heading::before,
+.cast-heading::after{
+
+    content:"";
+
+    height:1px;
+
+    flex:1;
+
+    background:
+        rgba(91,22,26,.35);
+}
+
+
+.member{
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:19px;
+
+    border-bottom:
+        1px dotted
+        rgba(60,23,22,.28);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:8.5px;
+
+    font-weight:700;
+
+    color:#43191A;
+
+    transition:.2s ease;
+}
+
+.member:last-child{
+    border-bottom:none;
+}
+
+.member:hover{
+
+    padding-left:5px;
+
+    color:#71151D;
+
+    background:
+        rgba(105,21,29,.07);
+}
+
+
+.member-number{
+
+    width:19px;
+
+    margin-right:5px;
+
+    font-family:"Special Elite",cursive;
+
+    font-size:6px;
+
+    color:#7B272B;
+}
+
+.member-name {
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #3C1716;
+    line-height: 1.2;
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: default;
+
+    transition:
+        color .25s ease,
+        letter-spacing .25s ease,
+        text-shadow .25s ease,
+        transform .25s ease;
+}
+
+.member-name:hover {
+    color: #FFF0B1;
+
+    background: #68161C;
+
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 0 1px #A8864D,
+        0 3px 8px rgba(0,0,0,.25);
+}
+
+/* =========================================================
+   SCORE AREA
+========================================================= */
+
+.scores{
+
+    flex:1;
+
+    min-height:0;
+
+    padding:
+        6px
+        9px
+        7px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+
+/* score heading */
+
+.score-heading{
+
+    text-align:center;
+
+    font-family:"Special Elite",cursive;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#68151C;
+
+    margin-bottom:4px;
+}
+
+
+/* score row */
+
+.score-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        31px;
+
+    align-items:center;
+
+    gap:5px;
+
+    min-height:26px;
+
+    margin-bottom:3px;
+
+    padding:
+        3px
+        4px;
+
+    border:
+        1px solid
+        rgba(91,22,26,.25);
+
+    background:
+        rgba(255,245,215,.4);
+
+    transition:.2s ease;
+}
+
+.score-row:hover{
+
+    background:
+        rgba(105,21,29,.08);
+
+    border-color:
+        rgba(105,21,29,.5);
+}
+
+
+/* SCORE LABEL */
+
+.score-label{
+
+    font-family:"Cinzel",serif;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.2px;
+
+    line-height:1.2;
+
+    color:#3C1716;
+
+    text-transform:uppercase;
+}
+
+
+.score-label small{
+
+    display:block;
+
+    margin-top:2px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+
+    line-height:1.2;
+
+    color:#52151A;
+
+    text-transform:uppercase;
+}
+
+
+/* SCORE NUMBER */
+
+.score-number{
+
+    height:23px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:"Special Elite",cursive;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:var(--cream-light);
+
+    background:var(--red);
+
+    border:
+        1px solid
+        rgba(211,171,85,.7);
+
+    box-shadow:
+        inset 0 0 7px
+        rgba(0,0,0,.25);
+}
+
+
+/* FINALE */
+
+.score-row.finale{
+
+    margin-top:1px;
+
+    border-color:
+        rgba(105,21,29,.5);
+
+    background:
+        rgba(211,171,85,.12);
+}
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.total{
+
+    position:relative;
+
+    margin-top:4px;
+
+    padding:
+        5px
+        8px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #511018,
+            #701A22
+        );
+
+    border:
+        1px solid
+        var(--gold);
+
+    box-shadow:
+        0 3px 8px
+        rgba(0,0,0,.25);
+}
+
+
+.total::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:3px;
+
+    border:
+        1px dashed
+        rgba(244,218,130,.45);
+
+    pointer-events:none;
+}
+
+
+.total-label{
+
+    font-family:"Cinzel",serif;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    color:var(--gold-light);
+}
+
+
+.total-number{
+
+    font-family:"Cinzel",serif;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    color:var(--gold-white);
+
+    text-shadow:
+        0 0 8px
+        rgba(244,218,130,.25);
+}
+
+
+/* =========================================================
+   TEAM COLORS
+========================================================= */
+
+.royals{
+    border-top-color:#D3AB55;
+}
+
+.superstars{
+    border-top-color:#E9C96F;
+}
+
+.icons{
+    border-top-color:#B98A3C;
+}
+
+.legends{
+    border-top-color:#DDBB69;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    flex-shrink:0;
+
+    margin-top:1px;
+
+    font-family:"Special Elite",cursive;
+
+    font-size:6px;
+
+    letter-spacing:3px;
+
+    color:
+        rgba(211,171,85,.45);
+}
+
+
+/* =========================================================
+   SHORT SCREEN
+========================================================= */
+
+@media(max-height:720px){
+
+    .page{
+        padding-top:11px;
+    }
+
+    .header h1{
+        font-size:33px;
+    }
+
+    .jury{
+
+        margin-top:3px;
+        margin-bottom:3px;
+
+        padding:
+            3px
+            20px
+            4px;
+    }
+
+    .jury-title{
+        font-size:9px;
+        padding:2px 24px;
+    }
+
+    .jury-names{
+        font-size:10px;
+    }
+
+    .team{
+
+        height:380px;
+
+        min-height:275px;
+    }
+
+    .team-header{
+        padding:5px;
+    }
+
+    .team-symbol{
+        font-size:15px;
+    }
+
+    .team-name{
+        font-size:15px;
+    }
+
+    .cast{
+        padding:4px 7px;
+    }
+
+    .member{
+
+        min-height:16px;
+
+        font-size:7px;
+    }
+
+    .scores{
+        padding:4px 7px;
+    }
+
+    .score-row{
+        min-height:22px;
+    }
+
+    .score-number{
+
+        height:19px;
+
+        font-size:9px;
+    }
+
+    .total{
+        padding:4px 6px;
+    }
+
+    .total-number{
+        font-size:15px;
+    }
+}
+
+
+/* =========================================================
+   VERY SHORT SCREEN
+========================================================= */
+
+@media(max-height:630px){
+
+    .header h1{
+
+        font-size:27px;
+
+        letter-spacing:5px;
+    }
+
+    .header-sub{
+        font-size:6px;
+    }
+
+    .header-decoration{
+        margin-top:2px;
+    }
+
+    .jury{
+
+        padding:
+            2px
+            15px
+            3px;
+
+        margin-top:2px;
+        margin-bottom:2px;
+    }
+
+    .jury-title{
+
+        font-size:7px;
+
+        padding:
+            1px
+            20px;
+    }
+
+    .jury-names{
+        font-size:7px;
+    }
+
+    .jury-names span{
+        padding:0 5px;
+    }
+
+    .team{
+
+        height:305px;
+
+        min-height:225px;
+    }
+
+    .team-header{
+        padding:3px;
+    }
+
+    .ticket-no{
+        font-size:5px;
+    }
+
+    .category{
+        font-size:5px;
+    }
+
+    .team-symbol{
+
+        font-size:12px;
+
+        line-height:13px;
+    }
+
+    .team-name{
+        font-size:11px;
+    }
+
+    .team-desc{
+        font-size:5px;
+    }
+
+    .cast{
+        padding:2px 5px;
+    }
+
+    .cast-heading{
+        font-size:5px;
+    }
+
+    .member{
+
+        min-height:13px;
+
+        font-size:5.5px;
+    }
+
+    .member-number{
+        font-size:4.5px;
+    }
+
+    .scores{
+        padding:3px 5px;
+    }
+
+    .score-heading{
+
+        font-size:5.5px;
+
+        margin-bottom:2px;
+    }
+
+    .score-row{
+
+        min-height:18px;
+
+        margin-bottom:2px;
+
+        padding:
+            2px
+            3px;
+    }
+
+    .score-label{
+        font-size:4.8px;
+    }
+
+    .score-label small{
+        font-size:4px;
+    }
+
+    .score-number{
+
+        height:16px;
+
+        font-size:7px;
+    }
+
+    .total{
+
+        margin-top:2px;
+
+        padding:
+            3px
+            5px;
+    }
+
+    .total-label{
+        font-size:5px;
+    }
+
+    .total-number{
+        font-size:12px;
+    }
+}
+
+
+/* =========================================================
+   WIDTH
+========================================================= */
+
+@media(max-width:1100px){
+
+    .page{
+
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .teams{
+        gap:7px;
+    }
+
+    .team{
+        min-height:265px;
+    }
+
+    .member{
+        font-size:7.5px;
+    }
+}
+
+
+/* =========================================================
+   SMALL WIDTH
+========================================================= */
+
+@media(max-width:750px){
+
+    .page{
+
+        padding:
+            8px
+            5px
+            3px;
+    }
+
+    .kris-kringle-btn,
+    .manito-manita-btn{
+
+        top:7px;
+
+        min-width:auto;
+
+        padding:
+            4px
+            6px;
+
+        font-size:6px;
+
+        letter-spacing:1px;
+    }
+
+    .kris-kringle-btn{
+        left:3px;
+    }
+
+    .manito-manita-btn{
+        right:3px;
+    }
+
+    .header h1{
+
+        font-size:21px;
+
+        letter-spacing:3px;
+    }
+
+    .header-sub{
+        font-size:5.5px;
+    }
+
+    .jury{
+        width:96%;
+    }
+
+    .jury-title{
+        font-size:7px;
+    }
+
+    .jury-names{
+        font-size:6px;
+        letter-spacing:1px;
+    }
+
+    .teams{
+        gap:3px;
+    }
+
+    .team-name{
+        font-size:9px;
+        letter-spacing:1px;
+    }
+
+    .team-symbol{
+        font-size:10px;
+    }
+
+    .member{
+        font-size:5px;
+    }
+
+    .score-label{
+        font-size:4.5px;
+    }
+
+    .score-label small{
+        font-size:3.8px;
+    }
+
+    .score-number{
+        font-size:6px;
+    }
+
+    .total-label{
+        font-size:4.5px;
+    }
+
+    .total-number{
+        font-size:9px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SNOW
+===================================================== -->
+
+<div class="snow s1">❄</div>
+<div class="snow s2">✦</div>
+<div class="snow s3">❄</div>
+<div class="snow s4">•</div>
+<div class="snow s5">❄</div>
+<div class="snow s6">✧</div>
+<div class="snow s7">❄</div>
+<div class="snow s8">•</div>
+<div class="snow s9">❄</div>
+<div class="snow s10">✦</div>
+<div class="snow s11">❄</div>
+<div class="snow s12">•</div>
+
+
+<!-- =====================================================
+     SPARKLES
+===================================================== -->
+
+<div class="sparkle a">✦</div>
+<div class="sparkle b">✧</div>
+<div class="sparkle c">✦</div>
+<div class="sparkle d">✧</div>
+<div class="sparkle e">✦</div>
+<div class="sparkle f">✧</div>
+
+
+<!-- =====================================================
+     VINTAGE NAVIGATION
+===================================================== -->
+
+<a
+    href="index.html"
+    class="kris-kringle-btn"
+>
+    ✦ KRIS KRINGLE ✦
+</a>
+
+<a
+    href="manito-manita.html"
+    class="manito-manita-btn"
+>
+    ✦ MANITO-MANITA ✦
+</a>
+
+
+<!-- =====================================================
+     CORNERS
+===================================================== -->
+
+<div class="corner corner-tl"></div>
+<div class="corner corner-tr"></div>
+<div class="corner corner-bl"></div>
+<div class="corner corner-br"></div>
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<div class="page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+    <div class="header-kicker">
+        FINANCE CREW • CHRISTMAS SPECIAL
+    </div>
+
+    <h1>
+        THE SHOWDOWN
+    </h1>
+
+    <div class="header-sub">
+        CHRISTMAS 2026 • FOUR TEAMS • ONE STAGE
+    </div>
+
+    <div class="header-decoration">
+        <span>✦</span>
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     JURY
+===================================================== -->
+
+<section class="jury">
+
+    <div class="jury-title">
+        ✦ JUDGES ✦
+    </div>
+
+    <div class="jury-names">
+
+        MS. DIANE SUN
+
+        <span>•</span>
+
+        MS. SHAMS REAS
+
+        <span>•</span>
+
+        MR. ALFRED ARABON
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOUR TEAM TICKETS
+===================================================== -->
+
+<main class="show-area">
+
+<div class="teams">
+
+
+<!-- =====================================================
+     ROYALS
+===================================================== -->
+
+<section class="team royals">
+
+    <div class="team-header">
+
+        <div class="ticket-no">
+            NO. 01
+        </div>
+
+        <div class="category">
+            THE CHRISTMAS PROGRAM
+        </div>
+
+        <div class="team-symbol">
+            ♛
+        </div>
+
+        <h2 class="team-name">
+            ROYALS
+        </h2>
+
+        <div class="team-desc">
+            SIX MEMBERS • ONE TEAM
+        </div>
+
+    </div>
+
+
+    <div class="cast">
+
+        <div class="cast-heading">
+            CAST
+        </div>
+
+        <div class="member">
+            <span class="member-number">01</span>
+            <span class="member-name">DAISY SENO</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">02</span>
+            <span class="member-name">EDDIE SALDUA</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">03</span>
+            <span class="member-name">LYNDON TABON</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">04</span>
+            <span class="member-name">JASON LIRASAN</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">05</span>
+            <span class="member-name">NIÑA SALMERON</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">06</span>
+            <span class="member-name">JULIA MARIE NELMIDA</span>
+        </div>
+
+    </div>
+
+
+    <div class="scores">
+
+        <div class="score-heading">
+            OFFICIAL SCORE
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 1
+                <small>DANCE TREND CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 2
+                <small>ACTING CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                GAMES
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row finale">
+
+            <div class="score-label">
+                FINALE
+                <small>DANCE SHOWDOWN</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="total">
+
+            <span class="total-label">
+                TOTAL SCORE
+            </span>
+
+            <strong class="total-number">
+                000
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUPERSTARS
+===================================================== -->
+
+<section class="team superstars">
+
+    <div class="team-header">
+
+        <div class="ticket-no">
+            NO. 02
+        </div>
+
+        <div class="category">
+            THE CHRISTMAS PROGRAM
+        </div>
+
+        <div class="team-symbol">
+            ★
+        </div>
+
+        <h2 class="team-name">
+            SUPERSTARS
+        </h2>
+
+        <div class="team-desc">
+            SIX MEMBERS • ONE TEAM
+        </div>
+
+    </div>
+
+
+    <div class="cast">
+
+        <div class="cast-heading">
+            CAST
+        </div>
+
+        <div class="member">
+            <span class="member-number">01</span>
+            <span class="member-name">DENNIS REGODO</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">02</span>
+            <span class="member-name">JUSTINA LOSANO</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">03</span>
+            <span class="member-name">JAY MONTOLO</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">04</span>
+            <span class="member-name">JAY-R MARANGA</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">05</span>
+            <span class="member-name">MELMAR MARTINEZ</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">06</span>
+            <span class="member-name">GABRIEL NOVELA</span>
+        </div>
+
+    </div>
+
+
+    <div class="scores">
+
+        <div class="score-heading">
+            OFFICIAL SCORE
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 1
+                <small>DANCE TREND CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 2
+                <small>ACTING CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                GAMES
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row finale">
+
+            <div class="score-label">
+                FINALE
+                <small>DANCE SHOWDOWN</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="total">
+
+            <span class="total-label">
+                TOTAL SCORE
+            </span>
+
+            <strong class="total-number">
+                000
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ICONS
+===================================================== -->
+
+<section class="team icons">
+
+    <div class="team-header">
+
+        <div class="ticket-no">
+            NO. 03
+        </div>
+
+        <div class="category">
+            THE CHRISTMAS PROGRAM
+        </div>
+
+        <div class="team-symbol">
+            ✦
+        </div>
+
+        <h2 class="team-name">
+            ICONS
+        </h2>
+
+        <div class="team-desc">
+            SIX MEMBERS • ONE TEAM
+        </div>
+
+    </div>
+
+
+    <div class="cast">
+
+        <div class="cast-heading">
+            CAST
+        </div>
+
+        <div class="member">
+            <span class="member-number">01</span>
+            <span class="member-name">ALMA ROMERAS</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">02</span>
+            <span class="member-name">JANINE FORMENTERA</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">03</span>
+            <span class="member-name">VIA CASTOR</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">04</span>
+            <span class="member-name">ROGER ABUCAY</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">05</span>
+            <span class="member-name">REX ARCHIVAL</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">06</span>
+            <span class="member-name">JONDELYN MAE YARAS</span>
+        </div>
+
+    </div>
+
+
+    <div class="scores">
+
+        <div class="score-heading">
+            OFFICIAL SCORE
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 1
+                <small>DANCE TREND CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 2
+                <small>ACTING CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                GAMES
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row finale">
+
+            <div class="score-label">
+                FINALE
+                <small>DANCE SHOWDOWN</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="total">
+
+            <span class="total-label">
+                TOTAL SCORE
+            </span>
+
+            <strong class="total-number">
+                000
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     LEGENDS
+===================================================== -->
+
+<section class="team legends">
+
+    <div class="team-header">
+
+        <div class="ticket-no">
+            NO. 04
+        </div>
+
+        <div class="category">
+            THE CHRISTMAS PROGRAM
+        </div>
+
+        <div class="team-symbol">
+            ✷
+        </div>
+
+        <h2 class="team-name">
+            LEGENDS
+        </h2>
+
+        <div class="team-desc">
+            SIX MEMBERS • ONE TEAM
+        </div>
+
+    </div>
+
+
+    <div class="cast">
+
+        <div class="cast-heading">
+            CAST
+        </div>
+
+        <div class="member">
+            <span class="member-number">01</span>
+            <span class="member-name">MHALEN DEJOLDE</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">02</span>
+            <span class="member-name">KAREN JOGUILON</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">03</span>
+            <span class="member-name">JERIC DESUYO</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">04</span>
+            <span class="member-name">MIGUEL CUYOS</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">05</span>
+            <span class="member-name">JUDE SANCHEZ</span>
+        </div>
+
+        <div class="member">
+            <span class="member-number">06</span>
+            <span class="member-name">NICHOLAS TAÑAJURA</span>
+        </div>
+
+    </div>
+
+
+    <div class="scores">
+
+        <div class="score-heading">
+            OFFICIAL SCORE
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 1
+                <small>DANCE TREND CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                ROUND 2
+                <small>ACTING CHALLENGE (VIDEO)</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row">
+
+            <div class="score-label">
+                GAMES
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="score-row finale">
+
+            <div class="score-label">
+                FINALE
+                <small>DANCE SHOWDOWN</small>
+            </div>
+
+            <div class="score-number">
+                00
+            </div>
+
+        </div>
+
+        <div class="total">
+
+            <span class="total-label">
+                TOTAL SCORE
+            </span>
+
+            <strong class="total-number">
+                000
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    THE SHOWDOWN • 2026 • OFFICIAL SCOREBOARD
+
+</footer>
+
+
+</div>
+
+</body>
+</html>
