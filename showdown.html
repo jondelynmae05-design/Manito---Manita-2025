@@ -588,6 +588,9 @@ body::after{
         rgba(243,227,194,.68);
 
     margin-bottom:8px;
+
+    transform: translateY(10px);
+
 }
 
 .header h1{
@@ -613,6 +616,7 @@ body::after{
 
         0 0 9px
         rgba(244,218,130,.2);
+  transform: translateY(12px);
 }
 
 .header-sub{
@@ -629,6 +633,7 @@ body::after{
 
     color:
         rgba(255,244,215,.72);
+  transform: translateY(12px);
 }
 
 .header-decoration{
@@ -642,6 +647,7 @@ body::after{
     gap:9px;
 
     margin-top:5px;
+  transform: translateY(20px);
 }
 
 .header-decoration::before,
@@ -686,25 +692,31 @@ body::after{
 ========================================================= */
 
 .jury {
-
     position: relative;
 
     flex-shrink: 0;
 
-    width: 100%;
+    width: min(760px, 70%);
 
-    margin-top: 8px;
-    margin-bottom: 9px;
+    margin: 10px auto 8px;
 
-    padding: 0;
+    padding: 10px 30px 7px;
 
     text-align: center;
 
-    background: transparent;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,240,176,.08),
+            transparent 65%
+        );
 
-    border: none;
+    color: var(--cream-light);
 
-    box-shadow: none;
+    overflow: visible;
+
+    /* MOVE JUDGES DOWN */
+    transform: translateY(8px);
 }
 
 
@@ -776,7 +788,7 @@ body::after{
         "Cinzel",
         serif;
 
-    font-size: 14px;
+    font-size: 20px;
 
     font-weight: 600;
 
@@ -826,7 +838,7 @@ body::after{
 
     gap: 25px;
 
-    margin-top: 15px;
+    margin-top: 10px;
 
     padding: 6px 25px;
 
@@ -2223,11 +2235,11 @@ body::after{
 
         <span>•</span>
 
-        MS. SHAMS REAS
+        MR. ALFRED ARABON
 
         <span>•</span>
 
-        MR. ALFRED ARABON
+        MS. SHAM REAS
 
     </div>
 
