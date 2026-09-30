@@ -12,10 +12,6 @@
 
 <style>
 
-/* =========================================================
-   ROOT
-========================================================= */
-
 :root {
 
     --red-dark: #4A0A12;
@@ -34,11 +30,6 @@
     --shadow:
         0 18px 45px rgba(0,0,0,.45);
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     box-sizing: border-box;
@@ -273,7 +264,8 @@ body::before {
 ========================================================= */
 
 .kris-kringle-btn,
-.showdown-btn {
+.showdown-btn,
+.wish-here-btn {
 
     position: fixed;
 
@@ -360,6 +352,9 @@ body::before {
 .showdown-btn {
     top: 65px;
 }
+.wish-here-btn {
+ top: 110px;
+}
 
 
 /* =========================================================
@@ -367,7 +362,8 @@ body::before {
 ========================================================= */
 
 .kris-kringle-btn:hover,
-.showdown-btn:hover {
+.showdown-btn:hover,
+.wish-here-btn:hover {
 
     background:
         linear-gradient(
@@ -789,10 +785,9 @@ body::before {
 
     position: absolute;
 
-       position: absolute;
-    top: -18px;   /* adjust this */
+    top: -18px;
     right: -10px;
- 
+
     z-index: 9999;
 
     width: 28px;
@@ -1429,11 +1424,6 @@ body::before {
         rgba(60,35,20,.15);
 }
 
-
-/* =========================================================
-   PAPER TEXTURE
-========================================================= */
-
 .wishlist-side::before {
 
     content: "";
@@ -1457,11 +1447,6 @@ body::before {
     z-index: 1;
 }
 
-
-/* =========================================================
-   INNER BORDER
-========================================================= */
-
 .wishlist-side::after {
 
     content: "";
@@ -1479,22 +1464,12 @@ body::before {
     z-index: 1;
 }
 
-
-/* =========================================================
-   CONTENT ABOVE TEXTURE
-========================================================= */
-
 .wishlist-side > * {
 
     position: relative;
 
     z-index: 60;
 }
-
-
-/* =========================================================
-   CENTER TITLES
-========================================================= */
 
 .ticket-title {
 
@@ -1763,12 +1738,10 @@ body::before {
 }
 
 .wish-description::-webkit-scrollbar {
-
     width: 5px;
 }
 
 .wish-description::-webkit-scrollbar-track {
-
     background:
         rgba(109,74,14,.08);
 
@@ -1854,11 +1827,6 @@ body::before {
     display: none !important;
 }
 
-
-/* =========================================================
-   GOLD UNDERLINE
-========================================================= */
-
 .wish-link::before {
 
     content: "";
@@ -1886,11 +1854,6 @@ body::before {
         right .25s ease;
 }
 
-
-/* =========================================================
-   CHRISTMAS SPARKLE
-========================================================= */
-
 .wish-link::after {
 
     content: "✦";
@@ -1911,11 +1874,6 @@ body::before {
         opacity .25s ease,
         transform .25s ease;
 }
-
-
-/* =========================================================
-   LINK HOVER
-========================================================= */
 
 .wish-link:hover {
 
@@ -2202,7 +2160,6 @@ body::before {
 
 /* =========================================================
    RESPONSIVE — LARGE LAPTOP / SMALL DESKTOP
-   DESIGN STAYS HORIZONTAL
 ========================================================= */
 
 @media (max-width: 1100px) {
@@ -2287,7 +2244,6 @@ body::before {
 
 /* =========================================================
    RESPONSIVE — ZOOMED LAPTOP / SMALL DESKTOP
-   STILL HORIZONTAL
 ========================================================= */
 
 @media (max-width: 850px) and (min-width: 651px) {
@@ -3447,6 +3403,212 @@ body::before {
 
 
 /* =========================================================
+   TICKET SLIDE NAVIGATION
+   ADDED — NO EXISTING DESIGN CHANGED
+========================================================= */
+
+.ticket-nav {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4A0A12,
+            #6D111A 50%,
+            #4A0A12
+        );
+
+    border:
+        1px solid
+        #D4AD55;
+
+    color:
+        #FFF0B1;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.4),
+        0 0 8px rgba(212,173,85,.18);
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.ticket-nav:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #F4DA82,
+            #D4AD55 50%,
+            #F4DA82
+        );
+
+    color:
+        #4A0A12;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.45),
+        0 0 12px rgba(244,218,130,.4);
+
+    transform:
+        translateY(-50%)
+        scale(1.05);
+}
+
+.ticket-nav:active {
+
+    transform:
+        translateY(-50%)
+        scale(.94);
+}
+
+.ticket-prev {
+
+    left:
+        -52px;
+}
+
+.ticket-next {
+
+    right:
+        -52px;
+}
+
+.ticket-nav.disabled {
+
+    opacity: .18;
+
+    pointer-events: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   TICKET COUNTER
+========================================================= */
+.ticket-counter {
+    position: absolute;
+    right: 50px;
+    bottom: 12px;
+
+    padding-left: 10px;
+
+   
+    color: #D4AD55;
+
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    z-index: 99999;
+    pointer-events: none;
+}
+
+/* =========================================================
+   NAVIGATION — SMALLER SCREENS
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .ticket-nav {
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 22px;
+    }
+
+    .ticket-prev {
+
+        left: 7px;
+    }
+
+    .ticket-next {
+
+        right: 7px;
+    }
+
+    .ticket-counter {
+
+        bottom: 7px;
+
+        font-size: 8px;
+
+        padding:
+            3px 7px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .ticket-nav {
+
+        width: 32px;
+        height: 32px;
+
+        font-size: 19px;
+    }
+
+    .ticket-prev {
+
+        left: 5px;
+    }
+
+    .ticket-next {
+
+        right: 5px;
+    }
+
+    .ticket-counter {
+
+        bottom: 6px;
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+}
+
+
+/* =========================================================
    REDUCE MOTION
 ========================================================= */
 
@@ -3465,7 +3627,6 @@ body::before {
         scroll-behavior: auto !important;
     }
 }
-
 </style>
 
 </head>
@@ -3521,7 +3682,11 @@ body::before {
 >
     ✦ THE SHOWDOWN ✦
 </a>
-
+<a href="https://teams.microsoft.com/l/chat/0/0?users=jmpyaras@olympus.com.ph"
+   target="_blank"
+   <a ... class="wish-here-btn">
+    ✦ WISH HERE ✦
+</a>
 
 <!-- ======================================================
      REFRESH
@@ -3591,6 +3756,38 @@ body::before {
         class="ticket"
         id="mainTicket"
     >
+
+
+        <!-- ==================================================
+             PREVIOUS / NEXT
+        =================================================== -->
+
+        <button
+            class="ticket-nav ticket-prev"
+            id="ticketPrev"
+            type="button"
+            aria-label="Previous participant"
+        >
+            ‹
+        </button>
+
+
+        <button
+            class="ticket-nav ticket-next"
+            id="ticketNext"
+            type="button"
+            aria-label="Next participant"
+        >
+            ›
+        </button>
+
+
+        <div
+            class="ticket-counter"
+            id="ticketCounter"
+        >
+            1 / 27
+        </div>
 
 
         <!-- ==================================================
@@ -4844,19 +5041,51 @@ const participantGrid =
     );
 
 
+/* =========================================================
+   PARTICIPANT NAVIGATION
+========================================================= */
+
+const participantNames =
+    Object.keys(participants);
+
+let currentParticipantIndex = 0;
+
+
+const ticketPrev =
+    document.getElementById(
+        "ticketPrev"
+    );
+
+
+const ticketNext =
+    document.getElementById(
+        "ticketNext"
+    );
+
+
+const ticketCounter =
+    document.getElementById(
+        "ticketCounter"
+    );
+
+
+/* =========================================================
+   CREATE PARTICIPANT CARDS
+========================================================= */
+
 function createParticipantCards() {
 
     participantGrid.innerHTML = "";
 
-    const names =
-        Object.keys(participants);
 
-
-    names.forEach(
+    participantNames.forEach(
         (name, index) => {
 
             const card =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
+
 
             card.className =
                 "participant-card";
@@ -4910,6 +5139,14 @@ function openParticipant(
     if (!person) {
         return;
     }
+
+
+    /* =====================================================
+       SAVE CURRENT PARTICIPANT POSITION
+    ===================================================== */
+
+    currentParticipantIndex =
+        number - 1;
 
 
     /* =====================================================
@@ -4985,7 +5222,10 @@ function openParticipant(
         "stubNumber"
     ).textContent =
         "KK-2026-" +
-        String(number).padStart(3, "0");
+        String(number).padStart(
+            3,
+            "0"
+        );
 
 
     /* =====================================================
@@ -4995,6 +5235,13 @@ function openParticipant(
     renderWishes(
         person.wishes || []
     );
+
+
+    /* =====================================================
+       UPDATE NAVIGATION
+    ===================================================== */
+
+    updateTicketNavigation();
 
 
     /* =====================================================
@@ -5025,6 +5272,142 @@ function openParticipant(
 
 
     ticketScreen.scrollTop = 0;
+
+}
+
+
+/* =========================================================
+   UPDATE TICKET NAVIGATION
+========================================================= */
+
+function updateTicketNavigation() {
+
+    const total =
+        participantNames.length;
+
+
+    const current =
+        currentParticipantIndex;
+
+
+    /* =====================================================
+       COUNTER
+    ===================================================== */
+
+    ticketCounter.textContent =
+        `${current + 1} / ${total}`;
+
+
+    /* =====================================================
+       PREVIOUS
+    ===================================================== */
+
+    if (
+        current <= 0
+    ) {
+
+        ticketPrev.classList.add(
+            "disabled"
+        );
+
+    }
+
+    else {
+
+        ticketPrev.classList.remove(
+            "disabled"
+        );
+
+    }
+
+
+    /* =====================================================
+       NEXT
+    ===================================================== */
+
+    if (
+        current >=
+        total - 1
+    ) {
+
+        ticketNext.classList.add(
+            "disabled"
+        );
+
+    }
+
+    else {
+
+        ticketNext.classList.remove(
+            "disabled"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS PARTICIPANT
+========================================================= */
+
+function previousParticipant() {
+
+    if (
+        currentParticipantIndex <= 0
+    ) {
+
+        return;
+
+    }
+
+
+    currentParticipantIndex--;
+
+
+    const name =
+        participantNames[
+            currentParticipantIndex
+        ];
+
+
+    openParticipant(
+        name,
+        currentParticipantIndex + 1
+    );
+
+}
+
+
+/* =========================================================
+   NEXT PARTICIPANT
+========================================================= */
+
+function nextParticipant() {
+
+    if (
+        currentParticipantIndex >=
+        participantNames.length - 1
+    ) {
+
+        return;
+
+    }
+
+
+    currentParticipantIndex++;
+
+
+    const name =
+        participantNames[
+            currentParticipantIndex
+        ];
+
+
+    openParticipant(
+        name,
+        currentParticipantIndex + 1
+    );
 
 }
 
@@ -5316,6 +5699,34 @@ function goHome() {
 
 
 /* =========================================================
+   TICKET NAVIGATION BUTTONS
+========================================================= */
+
+ticketPrev.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        previousParticipant();
+
+    }
+);
+
+
+ticketNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        nextParticipant();
+
+    }
+);
+
+
+/* =========================================================
    INITIALIZE
 ========================================================= */
 
@@ -5323,18 +5734,80 @@ createParticipantCards();
 
 
 /* =========================================================
-   ESC KEY
+   KEYBOARD NAVIGATION
 ========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
+        const ticketScreen =
+            document.getElementById(
+                "ticketScreen"
+            );
+
+
+        const ticketIsOpen =
+            ticketScreen.classList.contains(
+                "show"
+            );
+
+
+        /* =================================================
+           ESC = BACK
+        ================================================= */
+
         if (
             event.key === "Escape"
         ) {
 
-            goHome();
+            if (ticketIsOpen) {
+
+                goHome();
+
+            }
+
+            return;
+
+        }
+
+
+        /* =================================================
+           LEFT ARROW = PREVIOUS
+        ================================================= */
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            if (!ticketIsOpen) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+            previousParticipant();
+
+        }
+
+
+        /* =================================================
+           RIGHT ARROW = NEXT
+        ================================================= */
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            if (!ticketIsOpen) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+            nextParticipant();
 
         }
 
