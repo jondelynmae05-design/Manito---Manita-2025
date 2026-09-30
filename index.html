@@ -82,7 +82,8 @@ body {
 
     position: fixed;
 
-    left: 20px;
+    /* RESPONSIVE POSITION — SAME STYLE AS SHOWDOWN */
+    left: 7%;
 
     width: 180px;
     height: 35px;
@@ -96,7 +97,7 @@ body {
 
     padding: 0;
 
-   background:
+    background:
         linear-gradient(
             135deg,
             #7A2025,
@@ -105,7 +106,6 @@ body {
         );
 
     color: #FFF3D2;
-
 
     border: 2px solid #9A742E;
 
@@ -145,6 +145,10 @@ body {
         0 4px 10px rgba(0,0,0,.35),
         inset 0 0 0 1px rgba(255,255,255,.5);
 
+    /* SAME RESPONSIVE ALIGNMENT AS SHOWDOWN */
+    transform:
+        translateX(-50%);
+
     transition:
         background .35s ease,
         color .35s ease,
@@ -183,13 +187,15 @@ body {
 
     color: #641B18;
 
-
-    transform: translateY(-2px);
+    transform:
+        translateX(-50%)
+        translateY(-2px);
 
     filter:
         drop-shadow(0 5px 8px rgba(0,0,0,.4))
         drop-shadow(0 0 7px rgba(194,154,69,.25));
 }
+
 
 /* =========================================================
    MAIN CLAPPERBOARD
@@ -1516,6 +1522,27 @@ body {
     }
 
 
+    /* KEEP NAVIGATION RESPONSIVE ON SMALL SCREENS */
+
+    .kris-kringle-btn,
+    .showdown-btn {
+
+        left: 7%;
+
+        transform:
+            translateX(-50%);
+    }
+
+
+    .kris-kringle-btn:hover,
+    .showdown-btn:hover {
+
+        transform:
+            translateX(-50%)
+            translateY(-2px);
+    }
+
+
     .clapperboard {
 
         width: min(96vw,560px);
@@ -1720,6 +1747,8 @@ body {
 >
     ✦ THE SHOWDOWN ✦
 </a>
+
+
 <!-- =======================================================
      MAIN CLAPPERBOARD
 ======================================================= -->
@@ -2059,6 +2088,8 @@ body {
 
                         <td>
                             SOMETHING THAT KEEPS YOU ORGANIZED
+                        </td>
+
                     </tr>
 
 
