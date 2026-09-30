@@ -354,24 +354,29 @@ body::after{
     }
 }
 
+
 /* =========================================================
    TOP NAVIGATION BUTTONS
 ========================================================= */
 
 .kris-kringle-btn,
 .manito-manita-btn {
-    position: fixed;
-    left: 7%;
-    
-    width: 180px;
-    height: 35px;
-    box-sizing: border-box;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position:fixed;
 
-    padding: 0;
+    left:7%;
+
+    width:180px;
+    height:35px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
 
     background:
         linear-gradient(
@@ -381,21 +386,25 @@ body::after{
             #4A0A12
         );
 
-    color: #FFF3D2;
+    color:#FFF3D2;
 
-    border: 2px solid #9A742E;
+    border:2px solid #9A742E;
 
-    text-decoration: none;
+    text-decoration:none;
 
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
+    font-family:"Cinzel",serif;
 
-    cursor: pointer;
-    z-index: 9999;
+    font-size:12px;
 
-    clip-path: polygon(
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    clip-path:polygon(
         0 0,
         100% 0,
         100% 36%,
@@ -426,12 +435,12 @@ body::after{
    POSITION
 ========================================================= */
 
-.kris-kringle-btn {
-    top: 65px;
+.kris-kringle-btn{
+    top:65px;
 }
 
-.manito-manita-btn {
-    top: 20px;
+.manito-manita-btn{
+    top:20px;
 }
 
 
@@ -440,11 +449,9 @@ body::after{
 ========================================================= */
 
 .kris-kringle-btn:hover,
-.manito-manita-btn:hover {
+.manito-manita-btn:hover{
 
-
-
-  background:
+    background:
         linear-gradient(
             135deg,
             #F5E7C8,
@@ -452,8 +459,7 @@ body::after{
             #F3E4C5
         );
 
-    color: #641B18;
-
+    color:#641B18;
 
     transform:
         translateX(-50%)
@@ -470,9 +476,11 @@ body::after{
 ========================================================= */
 
 .kris-kringle-btn,
-.manito-manita-btn {
-    transform: translateX(-50%);
+.manito-manita-btn{
+    transform:translateX(-50%);
 }
+
+
 /* =========================================================
    CORNERS
 ========================================================= */
@@ -557,9 +565,9 @@ body::after{
     align-items:center;
 
     padding:
-        19px
-        38px
-        5px;
+        clamp(12px,1.7vh,19px)
+        clamp(18px,2.7vw,38px)
+        clamp(3px,.5vh,5px);
 }
 
 
@@ -580,7 +588,7 @@ body::after{
 
     font-family:"Special Elite",cursive;
 
-    font-size:8px;
+    font-size:clamp(6px,.55vw,8px);
 
     letter-spacing:4px;
 
@@ -589,8 +597,7 @@ body::after{
 
     margin-bottom:8px;
 
-    transform: translateY(10px);
-
+    transform:translateY(10px);
 }
 
 .header h1{
@@ -616,7 +623,8 @@ body::after{
 
         0 0 9px
         rgba(244,218,130,.2);
-  transform: translateY(12px);
+
+    transform:translateY(12px);
 }
 
 .header-sub{
@@ -625,7 +633,7 @@ body::after{
 
     font-family:"Playfair Display",serif;
 
-    font-size:8px;
+    font-size:clamp(6px,.55vw,8px);
 
     font-weight:700;
 
@@ -633,7 +641,8 @@ body::after{
 
     color:
         rgba(255,244,215,.72);
-  transform: translateY(12px);
+
+    transform:translateY(12px);
 }
 
 .header-decoration{
@@ -647,7 +656,8 @@ body::after{
     gap:9px;
 
     margin-top:5px;
-  transform: translateY(20px);
+
+    transform:translateY(20px);
 }
 
 .header-decoration::before,
@@ -687,22 +697,30 @@ body::after{
     font-size:11px;
 }
 
+
 /* =========================================================
-   ELEGANT CINEMA CREDIT JURY
+   JURY
 ========================================================= */
 
-.jury {
-    position: relative;
+.jury{
 
-    flex-shrink: 0;
+    position:relative;
 
-    width: min(760px, 70%);
+    flex-shrink:0;
 
-    margin: 10px auto 8px;
+    width:min(760px,70%);
 
-    padding: 10px 30px 7px;
+    margin:
+        clamp(5px,1vh,10px)
+        auto
+        clamp(4px,.8vh,8px);
 
-    text-align: center;
+    padding:
+        clamp(6px,1vh,10px)
+        30px
+        clamp(4px,.7vh,7px);
+
+    text-align:center;
 
     background:
         radial-gradient(
@@ -711,111 +729,67 @@ body::after{
             transparent 65%
         );
 
-    color: var(--cream-light);
+    color:var(--cream-light);
 
-    overflow: visible;
+    overflow:visible;
 
-    /* MOVE JUDGES DOWN */
-    transform: translateY(8px);
+    transform:translateY(8px);
 }
 
 
 /* =========================================================
-   TITLE
+   JURY ORNAMENT TOP
 ========================================================= */
 
-/* =========================================================
-   ELEGANT VINTAGE JURY ORNAMENT
-========================================================= */
+.jury-ornament-top{
 
-.jury {
+    font-family:"Cinzel",serif;
 
-    position: relative;
+    font-size:8px;
 
-    flex-shrink: 0;
+    letter-spacing:7px;
 
-    width: min(760px, 70%);
+    color:var(--gold);
 
-    margin: 10px auto 8px;
-
-    padding: 10px 30px 7px;
-
-    text-align: center;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(255,240,176,.08),
-            transparent 65%
-        );
-
-    color: var(--cream-light);
-
-    overflow: visible;
-}
-
-
-/* =========================================================
-   DECORATIVE TOP
-========================================================= */
-
-.jury-ornament-top {
-
-    font-family:
-        "Cinzel",
-        serif;
-
-    font-size: 8px;
-
-    letter-spacing: 7px;
-
-    color: var(--gold);
-
-    margin-bottom: 2px;
+    margin-bottom:2px;
 
     text-shadow:
         0 0 7px rgba(211,171,85,.25);
+  
 }
 
 
 /* =========================================================
-   TITLE
+   JURY TITLE
 ========================================================= */
 
 .jury-title {
-
-    font-family:
-        "Cinzel",
-        serif;
-
+    font-family: "Cinzel", serif;
     font-size: 20px;
-
     font-weight: 600;
-
     letter-spacing: 6px;
-
     color: var(--gold-light);
 
     text-shadow:
         0 2px 6px rgba(0,0,0,.7);
+
+    transform: translateY(30px);
 }
 
 
 /* =========================================================
-   SUBTITLE
+   JURY SUBTITLE
 ========================================================= */
 
-.jury-subtitle {
+.jury-subtitle{
 
-    margin-top: 2px;
+    margin-top:2px;
 
-    font-family:
-        "Special Elite",
-        monospace;
+    font-family:"Special Elite",monospace;
 
-    font-size: 6px;
+    font-size:6px;
 
-    letter-spacing: 3px;
+    letter-spacing:3px;
 
     color:
         rgba(255,244,215,.6);
@@ -823,24 +797,24 @@ body::after{
 
 
 /* =========================================================
-   JUDGES
+   JURY NAMES
 ========================================================= */
 
-.jury-names {
+.jury-names{
 
-    position: relative;
+    position:relative;
 
-    display: flex;
+    display:flex;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    justify-content:center;
 
-    gap: 25px;
+    gap:25px;
 
-    margin-top: 10px;
+    margin-top:40px;
 
-    padding: 6px 25px;
+    padding:6px 25px;
 
     background:
         linear-gradient(
@@ -854,48 +828,49 @@ body::after{
 
     box-shadow:
         0 3px 10px rgba(0,0,0,.18);
+
+    font-size:clamp(20px,.8vw,12px);
 }
 
 
-/* GOLD ORNAMENT ABOVE NAMES */
+/* =========================================================
+   GOLD ORNAMENTS
+========================================================= */
 
-.jury-names::before {
+.jury-names::before{
 
-    content: "❧";
+    content:"❧";
 
-    position: absolute;
+    position:absolute;
 
-    left: -4px;
+    left:-4px;
 
-    top: 50%;
+    top:50%;
 
-    transform: translateY(-50%);
+    transform:translateY(-50%);
 
-    color: var(--gold);
+    color:var(--gold);
 
-    font-size: 15px;
+    font-size:15px;
 }
 
+.jury-names::after{
 
-/* GOLD ORNAMENT RIGHT */
+    content:"❧";
 
-.jury-names::after {
+    position:absolute;
 
-    content: "❧";
+    right:-4px;
 
-    position: absolute;
-
-    right: -4px;
-
-    top: 50%;
+    top:50%;
 
     transform:
         translateY(-50%)
         scaleX(-1);
 
-    color: var(--gold);
+    color:var(--gold);
 
-    font-size: 15px;
+    font-size:15px;
 }
 
 
@@ -903,42 +878,39 @@ body::after{
    JUDGE
 ========================================================= */
 
-.judge {
+.judge{
 
-    position: relative;
+    position:relative;
 
-    padding: 0 5px;
+    padding:0 5px;
 
     transition:
         transform .25s ease;
 }
 
+.judge:hover{
 
-.judge:hover {
-
-    transform: translateY(-2px);
+    transform:translateY(-20px);
 }
 
 
 /* =========================================================
-   NAME
+   JUDGE NAME
 ========================================================= */
 
-.judge-name {
+.judge-name{
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family:"Playfair Display",serif;
 
-    font-size: 12px;
+    font-size:12px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    letter-spacing: 1.5px;
+    letter-spacing:1.5px;
 
-    color: var(--cream-light);
+    color:var(--cream-light);
 
-    white-space: nowrap;
+    white-space:nowrap;
 
     text-shadow:
         0 1px 5px rgba(0,0,0,.7);
@@ -947,10 +919,9 @@ body::after{
         color .25s ease;
 }
 
+.judge:hover .judge-name{
 
-.judge:hover .judge-name {
-
-    color: var(--gold-light);
+    color:var(--gold-light);
 }
 
 
@@ -958,17 +929,15 @@ body::after{
    DIVIDERS
 ========================================================= */
 
-.judge-divider {
+.judge-divider{
 
-    font-family:
-        "Cinzel",
-        serif;
+    font-family:"Cinzel",serif;
 
-    font-size: 6px;
+    font-size:6px;
 
-    color: var(--gold);
+    color:var(--gold);
 
-    opacity: .8;
+    opacity:.8;
 }
 
 
@@ -976,22 +945,21 @@ body::after{
    BOTTOM ORNAMENT
 ========================================================= */
 
-.jury-ornament-bottom {
+.jury-ornament-bottom{
 
-    margin-top: 4px;
+    margin-top:4px;
 
-    font-family:
-        "Cinzel",
-        serif;
+    font-family:"Cinzel",serif;
 
-    font-size: 13px;
+    font-size:13px;
 
-    color: var(--gold);
+    color:var(--gold);
 
-    line-height: .5;
+    line-height:.5;
 
-    opacity: .8;
+    opacity:.8;
 }
+
 
 /* =========================================================
    SHOW AREA
@@ -1001,7 +969,7 @@ body::after{
 
     width:100%;
 
-    max-width:1500px;
+    max-width:1700px;
 
     flex:1;
 
@@ -1014,9 +982,9 @@ body::after{
     justify-content:center;
 
     padding:
-        2px
+        clamp(2px,.3vh,4px)
         0
-        3px;
+        clamp(3px,.5vh,6px);
 }
 
 
@@ -1032,11 +1000,14 @@ body::after{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4,minmax(0,1fr));
 
-    gap:14px;
+    gap:
+        clamp(7px,1vw,18px);
 
     align-items:center;
+
+    justify-content:center;
 }
 
 
@@ -1048,9 +1019,20 @@ body::after{
 
     position:relative;
 
-    height:min(60vh,435px);
+    /*
+       AUTO-SCALES WITH SCREEN HEIGHT
+       while keeping original maximum size
+    */
+    height:
+        clamp(
+            275px,
+            min(58vh, 31vw),
+            435px
+        );
 
-    min-height:315px;
+    min-height:0;
+
+    width:100%;
 
     display:flex;
 
@@ -1080,7 +1062,8 @@ body::after{
     color:var(--ink);
 
     border-top:
-        5px solid
+        clamp(3px,.35vw,5px)
+        solid
         var(--red);
 
     box-shadow:
@@ -1192,9 +1175,9 @@ body::after{
     position:relative;
 
     padding:
-        7px
-        8px
-        6px;
+        clamp(5px,.55vh,7px)
+        clamp(6px,.6vw,8px)
+        clamp(4px,.5vh,6px);
 
     text-align:center;
 
@@ -1214,7 +1197,9 @@ body::after{
 }
 
 
-/* ticket number */
+/* =========================================================
+   TICKET NUMBER
+========================================================= */
 
 .ticket-no{
 
@@ -1226,7 +1211,7 @@ body::after{
 
     font-family:"Special Elite",cursive;
 
-    font-size:7px;
+    font-size:clamp(8px,.45vw,7px);
 
     letter-spacing:1px;
 
@@ -1235,13 +1220,15 @@ body::after{
 }
 
 
-/* category */
+/* =========================================================
+   CATEGORY
+========================================================= */
 
 .category{
 
     font-family:"Special Elite",cursive;
 
-    font-size:7px;
+    font-size:clamp(5px,.45vw,7px);
 
     letter-spacing:3px;
 
@@ -1249,15 +1236,19 @@ body::after{
 }
 
 
-/* symbol */
+/* =========================================================
+   SYMBOL
+========================================================= */
 
 .team-symbol{
 
     margin-top:1px;
 
-    font-size:18px;
+    font-size:
+        clamp(13px,1.35vw,18px);
 
-    line-height:19px;
+    line-height:
+        clamp(14px,1.45vw,19px);
 
     color:var(--gold-light);
 
@@ -1267,28 +1258,29 @@ body::after{
 }
 
 
-/* team name */
+/* =========================================================
+   TEAM NAME
+========================================================= */
 
-.team-name{
+.team-name {
+    margin: 0;
 
-    margin:0;
+    font-family: "Playfair Display", serif;
 
-    font-family:"Cinzel",serif;
+    font-size: clamp(16px, 1.55vw, 22px);
 
-    font-size:
-        clamp(16px,1.55vw,22px);
+    font-weight: 700;
 
-    font-weight:800;
+    letter-spacing: clamp(1px, .14vw, 2px);
 
-    letter-spacing:2px;
+    line-height: 1.05;
 
-    line-height:1.05;
-
-    color:var(--gold-white);
+    color: var(--gold-white);
 }
 
-
-/* description */
+/* =========================================================
+   DESCRIPTION
+========================================================= */
 
 .team-desc{
 
@@ -1296,7 +1288,7 @@ body::after{
 
     font-family:"Playfair Display",serif;
 
-    font-size:7px;
+    font-size:clamp(5px,.48vw,7px);
 
     font-weight:700;
 
@@ -1316,15 +1308,19 @@ body::after{
     flex-shrink:0;
 
     padding:
-        6px
-        9px
-        5px;
+        clamp(4px,.65vh,6px)
+        clamp(6px,.6vw,9px)
+        clamp(3px,.5vh,5px);
 
     border-bottom:
         1px solid
         rgba(60,23,22,.2);
 }
 
+
+/* =========================================================
+   CAST HEADING
+========================================================= */
 
 .cast-heading{
 
@@ -1338,7 +1334,7 @@ body::after{
 
     font-family:"Cinzel",serif;
 
-    font-size:7px;
+    font-size:clamp(5px,.5vw,7px);
 
     font-weight:800;
 
@@ -1361,13 +1357,18 @@ body::after{
 }
 
 
+/* =========================================================
+   MEMBER
+========================================================= */
+
 .member{
 
     display:flex;
 
     align-items:center;
 
-    min-height:19px;
+    min-height:
+        clamp(16px,2vh,19px);
 
     border-bottom:
         1px dotted
@@ -1375,7 +1376,8 @@ body::after{
 
     font-family:"Playfair Display",serif;
 
-    font-size:8.5px;
+    font-size:
+        clamp(6px,.62vw,8.5px);
 
     font-weight:700;
 
@@ -1399,54 +1401,69 @@ body::after{
 }
 
 
+/* =========================================================
+   MEMBER NUMBER
+========================================================= */
+
 .member-number{
 
-    width:19px;
+    width:
+        clamp(16px,1.4vw,19px);
 
     margin-right:5px;
 
+    flex-shrink:0;
+
     font-family:"Special Elite",cursive;
 
-    font-size:px;
+    font-size:8px;
 
     color:#7B272B;
 }
 
+
+/* =========================================================
+   MEMBER NAME
+========================================================= */
+
 .member-name {
-    font-family: "Cinzel", serif;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
+    min-width: 0;
+
+    font-family: "Special Elite", cursive;
+
+    font-size: clamp(9px, .85vw, 13px);
+
+    font-weight: 400;
+
+    letter-spacing: 1.5px;
+
+    line-height: 1.25;
+
     color: #3C1716;
-    line-height: 1.2;
+
     text-align: center;
 
-    text-transform: none;
+    text-transform: uppercase;
 
     white-space: nowrap;
+
     overflow: hidden;
+
     text-overflow: ellipsis;
-
-    cursor: default;
-
-    transition:
-        color .25s ease,
-        letter-spacing .25s ease,
-        text-shadow .25s ease,
-        transform .25s ease;
 }
+.member-name:hover{
 
-.member-name:hover {
-    color: #FFF0B1;
+    color:#FFF0B1;
 
-    background: #68161C;
+    background:#68161C;
 
-    transform: scale(1.03);
+    transform:scale(1.03);
 
     box-shadow:
         0 0 0 1px #A8864D,
         0 3px 8px rgba(0,0,0,.25);
 }
+
 
 /* =========================================================
    SCORE AREA
@@ -1459,9 +1476,9 @@ body::after{
     min-height:0;
 
     padding:
-        6px
-        9px
-        7px;
+        clamp(4px,.7vh,6px)
+        clamp(6px,.6vw,9px)
+        clamp(5px,.8vh,7px);
 
     display:flex;
 
@@ -1471,7 +1488,9 @@ body::after{
 }
 
 
-/* score heading */
+/* =========================================================
+   SCORE HEADING
+========================================================= */
 
 .score-heading{
 
@@ -1479,37 +1498,41 @@ body::after{
 
     font-family:"Special Elite",cursive;
 
-    font-size:8px;
+    font-size:
+        clamp(6px,.55vw,8px);
 
     letter-spacing:3px;
 
     color:#68151C;
 
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 
-/* score row */
+/* =========================================================
+   SCORE ROW
+========================================================= */
 
 .score-row{
 
     display:grid;
 
     grid-template-columns:
-        1fr
-        31px;
+        minmax(0,1fr)
+        clamp(20px,2.2vw,31px);
 
     align-items:center;
 
     gap:5px;
 
-    min-height:26px;
+    min-height:
+        clamp(21px,2.7vh,26px);
 
     margin-bottom:3px;
 
     padding:
-        3px
-        4px;
+        clamp(4px,.5vh,4px)
+        clamp(5px,.4vw,5px);
 
     border:
         1px solid
@@ -1531,25 +1554,28 @@ body::after{
 }
 
 
-/* SCORE LABEL */
+/* =========================================================
+   SCORE LABEL
+========================================================= */
 
 .score-label{
 
     font-family:"Cinzel",serif;
 
-    font-size:10px;
+    font-size:
+        clamp(8px,.72vw,10px);
 
     font-weight:800;
 
-    letter-spacing:1.2px;
+    letter-spacing:
+        clamp(.7px,.09vw,1.2px);
 
-    line-height:1.2;
+    line-height:2;
 
     color:#3C1716;
 
     text-transform:uppercase;
 }
-
 
 .score-label small{
 
@@ -1559,7 +1585,8 @@ body::after{
 
     font-family:"Cinzel",serif;
 
-    font-size:8px;
+    font-size:
+        clamp(10px,.55vw,8px);
 
     font-weight:800;
 
@@ -1573,11 +1600,14 @@ body::after{
 }
 
 
-/* SCORE NUMBER */
+/* =========================================================
+   SCORE NUMBER
+========================================================= */
 
 .score-number{
 
-    height:23px;
+    height:
+        clamp(30px,2.4vh,28px);
 
     display:flex;
 
@@ -1587,7 +1617,8 @@ body::after{
 
     font-family:"Special Elite",cursive;
 
-    font-size:11px;
+    font-size:
+        clamp(10px,.8vw,11px);
 
     font-weight:700;
 
@@ -1607,7 +1638,9 @@ body::after{
 }
 
 
-/* FINALE */
+/* =========================================================
+   FINALE
+========================================================= */
 
 .score-row.finale{
 
@@ -1620,6 +1653,7 @@ body::after{
         rgba(211,171,85,.12);
 }
 
+
 /* =========================================================
    TOTAL
 ========================================================= */
@@ -1631,8 +1665,8 @@ body::after{
     margin-top:4px;
 
     padding:
-        5px
-        8px;
+        clamp(4px,.55vh,5px)
+        clamp(6px,.55vw,8px);
 
     display:flex;
 
@@ -1678,7 +1712,8 @@ body::after{
 
     font-family:"Cinzel",serif;
 
-    font-size:7px;
+    font-size:
+        clamp(10px,.5vw,7px);
 
     font-weight:800;
 
@@ -1692,7 +1727,8 @@ body::after{
 
     font-family:"Cinzel",serif;
 
-    font-size:18px;
+    font-size:
+        clamp(12px,1.25vw,18px);
 
     font-weight:800;
 
@@ -1739,12 +1775,94 @@ body::after{
 
     font-family:"Special Elite",cursive;
 
-    font-size:6px;
+    font-size:clamp(10px,.45vw,6px);
 
     letter-spacing:3px;
 
     color:
         rgba(211,171,85,.45);
+}
+
+
+/* =========================================================
+   LARGE MONITORS
+   CARDS USE MORE AVAILABLE SPACE
+========================================================= */
+
+@media (min-width:1600px) and (min-height:800px){
+
+    .page{
+
+        padding-left:
+            clamp(30px,3vw,55px);
+
+        padding-right:
+            clamp(30px,3vw,55px);
+    }
+
+    .teams{
+
+        gap:
+            clamp(12px,1.2vw,24px);
+    }
+
+    .team{
+
+        height:
+            clamp(
+                360px,
+                min(60vh,31vw),
+                500px
+            );
+    }
+
+    .team-name{
+
+        font-size:
+            clamp(18px,1.35vw,25px);
+    }
+
+    .member-name{
+
+        font-size:
+            clamp(10px,1vw,14px);
+    }
+
+    .score-label{
+
+        font-size:
+            clamp(8px,.7vw,11px);
+    }
+
+    .total-number{
+
+        font-size:
+            clamp(15px,1.2vw,20px);
+    }
+}
+
+
+/* =========================================================
+   MEDIUM LAPTOP / MONITOR
+========================================================= */
+
+@media (min-width:1101px) and (max-width:1599px){
+
+    .teams{
+
+        gap:
+            clamp(8px,1vw,16px);
+    }
+
+    .team{
+
+        height:
+            clamp(
+                300px,
+                min(59vh,31vw),
+                435px
+            );
+    }
 }
 
 
@@ -1774,8 +1892,12 @@ body::after{
     }
 
     .jury-title{
+
         font-size:9px;
-        padding:20px 24px;
+
+        padding:
+            20px
+            24px;
     }
 
     .jury-names{
@@ -1784,9 +1906,14 @@ body::after{
 
     .team{
 
-        height:380px;
+        height:
+            clamp(
+                275px,
+                49vh,
+                380px
+            );
 
-        min-height:275px;
+        min-height:0;
     }
 
     .team-header{
@@ -1888,9 +2015,14 @@ body::after{
 
     .team{
 
-        height:305px;
+        height:
+            clamp(
+                225px,
+                43vh,
+                305px
+            );
 
-        min-height:225px;
+        min-height:0;
     }
 
     .team-header{
@@ -2008,14 +2140,25 @@ body::after{
     }
 
     .teams{
-        gap:7px;
+
+        gap:
+            clamp(5px,1vw,10px);
     }
 
     .team{
-        min-height:265px;
+
+        min-height:0;
+
+        height:
+            clamp(
+                265px,
+                56vh,
+                400px
+            );
     }
 
     .member{
+
         font-size:7.5px;
     }
 }
@@ -2118,6 +2261,43 @@ body::after{
 
     .total-number{
         font-size:9px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL WIDTH
+========================================================= */
+
+@media(max-width:500px){
+
+    .page{
+        padding-left:3px;
+        padding-right:3px;
+    }
+
+    .teams{
+        gap:2px;
+    }
+
+    .team-name{
+        font-size:8px;
+    }
+
+    .member-name{
+        font-size:7px;
+    }
+
+    .score-label{
+        font-size:4px;
+    }
+
+    .score-label small{
+        font-size:3.3px;
+    }
+
+    .total-number{
+        font-size:8px;
     }
 }
 
@@ -2360,9 +2540,8 @@ body::after{
         <div class="score-row">
 
             <div class="score-label">
-               ACTION
+                ACTION
                 <small>GAMES (LIVE)</small>
-
             </div>
 
             <div class="score-number">
@@ -2493,7 +2672,7 @@ body::after{
         <div class="score-row">
 
             <div class="score-label">
-              CAMERA
+                CAMERA
                 <small>ACTING CHALLENGE (VIDEO)</small>
             </div>
 
@@ -2508,7 +2687,6 @@ body::after{
             <div class="score-label">
                 ACTION
                 <small>GAMES (LIVE)</small>
-
             </div>
 
             <div class="score-number">
@@ -2639,7 +2817,7 @@ body::after{
         <div class="score-row">
 
             <div class="score-label">
-               CAMERA
+                CAMERA
                 <small>ACTING CHALLENGE (VIDEO)</small>
             </div>
 
@@ -2653,7 +2831,7 @@ body::after{
 
             <div class="score-label">
                 ACTION
-<small> GAMES (LIVE)</small>
+                <small>GAMES (LIVE)</small>
             </div>
 
             <div class="score-number">
@@ -2771,7 +2949,7 @@ body::after{
         <div class="score-row">
 
             <div class="score-label">
-               LIGHTS
+                LIGHTS
                 <small>DANCE TREND CHALLENGE (VIDEO)</small>
             </div>
 
@@ -2798,8 +2976,7 @@ body::after{
 
             <div class="score-label">
                 ACTION
-<small> GAMES (LIVE)</small>
-
+                <small>GAMES (LIVE)</small>
             </div>
 
             <div class="score-number">
