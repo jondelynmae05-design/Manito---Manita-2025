@@ -1125,7 +1125,8 @@ body::before {
 
     overflow: visible;
 
-    flex-shrink: 1;
+   
+    flex-shrink: 0;
 }
 
 
@@ -1382,7 +1383,7 @@ body::before {
     min-width: 0;
 
     padding:
-        clamp(50px, 4vh, 40px)
+        clamp(30px, 4vh, 40px)
         clamp(15px, 3vw, 35px)
         clamp(20px, 3vh, 30px);
 
@@ -1584,10 +1585,10 @@ body::before {
     z-index: 60;
 
     width: 100%;
-
+max-width: 100%;
     margin-top: 30px;
 
-    border-collapse: separate;
+    border-collapse: collapse;
 
     border-spacing: 0;
 
@@ -1666,6 +1667,7 @@ body::before {
 
     position: relative;
 
+    flex-shrink: 0;
     z-index: 100;
 
     cursor: zoom-in;
@@ -4020,21 +4022,21 @@ const participants = {
         wishes: [
 
             {
-                image: ".png",
+                image: "",
                 label: "",
                 description: "",
                 link: ""
             },
 
             {
-                image: ".png",
+                image: "",
                 label: "",
                 description: "",
                 link: ""
             },
 
             {
-                image: ".png",
+                image: "",
                 label: "",
                 description: "",
                 link: ""
