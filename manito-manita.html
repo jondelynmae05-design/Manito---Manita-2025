@@ -644,6 +644,44 @@ body::before {
 }
 
 
+
+
+.participant-name.has-wish {
+    color: #FFFFFF !important;
+    font-weight: 900;
+
+    text-shadow:
+        0 0 3px rgba(255, 255, 255, 0.45),
+        0 0 7px rgba(255, 230, 160, 0.65),
+        0 0 12px rgba(255, 200, 80, 0.55),
+        0 0 18px rgba(255, 183, 0, 0.35);
+
+    animation: goldenWishGlow 2.5s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+}
+
+@keyframes goldenWishGlow {
+    from {
+        text-shadow:
+            0 0 2px rgba(255, 255, 255, 0.35),
+            0 0 6px rgba(255, 230, 160, 0.5),
+            0 0 10px rgba(255, 200, 80, 0.4);
+    }
+
+    to {
+        text-shadow:
+            0 0 4px rgba(255, 255, 255, 0.55),
+            0 0 8px rgba(255, 230, 160, 0.7),
+            0 0 14px rgba(255, 200, 80, 0.6),
+            0 0 20px rgba(255, 183, 0, 0.4);
+    }
+}
+
+
+
+
+
+
 /* =========================================================
    CLAPPER TOP
 ========================================================= */
@@ -4062,7 +4100,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -4101,7 +4139,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -4179,7 +4217,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -4256,7 +4294,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -4295,7 +4333,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -4562,7 +4600,7 @@ const participants = {
             {
                 image: "",
                 label: "",
-                description: ".",
+                description: "",
                 link: "",
                 linkLabel: ""
             },
@@ -5103,52 +5141,42 @@ const ticketCounter =
    CREATE PARTICIPANT CARDS
 ========================================================= */
 
+
 function createParticipantCards() {
 
     participantGrid.innerHTML = "";
 
+    participantNames.forEach((name, index) => {
 
-    participantNames.forEach(
-        (name, index) => {
+        const card = document.createElement("div");
+        card.className = "participant-card";
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        // Check whether this participant has added a wish
+        const participant = participants[name];
 
+        const hasWish = participant?.wishes?.some(wish =>
+            wish &&
+            (
+                wish.image?.trim() ||
+                wish.label?.trim() ||
+                wish.description?.trim() ||
+                wish.link?.trim()
+            )
+        );
 
-            card.className =
-                "participant-card";
+        card.innerHTML = `
+            <div class="participant-name ${hasWish ? "has-wish" : ""}">
+                ${name}
+            </div>
+        `;
 
+        card.addEventListener("click", () => {
+            openParticipant(name, index + 1);
+        });
 
-            card.innerHTML = `
+        participantGrid.appendChild(card);
 
-                <div class="participant-name">
-                    ${name}
-                </div>
-
-            `;
-
-
-            card.addEventListener(
-                "click",
-                () => {
-
-                    openParticipant(
-                        name,
-                        index + 1
-                    );
-
-                }
-            );
-
-
-            participantGrid.appendChild(
-                card
-            );
-
-        }
-    );
+    });
 
 }
 
