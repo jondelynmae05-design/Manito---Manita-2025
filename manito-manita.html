@@ -1864,7 +1864,6 @@ max-width: 100%;
         transparent;
 
     border: none;
-
     text-decoration: none;
 
     font-family:
@@ -1922,7 +1921,7 @@ max-width: 100%;
 
 .wish-link::after {
 
-    content: "✦";
+    content: "";
 
     position: absolute;
 
@@ -4488,16 +4487,28 @@ const participants = {
                 label: "HIGH WAIST PLEATED SKORT",
                 description: "COLOR: <BR> PINK ONLY<br>SIZE: SMALL",
                 link: "https://www.lazada.com.ph/products/top-trend-ph-womens-high-waist-pleated-tennis-skort-with-safety-shorts-quick-dry-athletic-skirt-for-badminton-pickleball-golf-running-gym-i15550113947-s133375462680.html?",
-		linkLabel:"LAZADA"
+		linkLabel:"LAZADA",
+		link2: "TIKTOK",
+		linkLabel2: "TIKTOK",
+		link3: "YOUR_TIKTOK_LINK",
+		linkLabel3: "SHOPEE"
 
             },
 
             {
-                image: "Earbuds.png",
-                label: "UGREEN CLIPBUDS",
-                description: "COLOR: <br> CHAMPAGNE GOLD",
-                link: "https://www.lazada.com.ph/products/pdp-i5235067480-s32038723945.html",
-		linkLabel:"LAZADA"
+                
+		image: "Earbuds.png",
+		label: "UGREEN CLIPBUDS",
+		description: "COLOR: <br> CHAMPAGNE GOLD",
+
+		link: "https://www.lazada.com.ph/products/pdp-i5235067480-s32038723945.html",
+		linkLabel: "LAZADA",
+
+		link2: "TIKTOK",
+		linkLabel2: "TIKTOK",
+
+		link3: "YOUR_TIKTOK_LINK",
+		linkLabel3: "SHOPEE"
             },
 
             {
@@ -5630,74 +5641,55 @@ function renderWishes(wishes) {
         );
 
 
-        /* =================================================
-           LINK
-        ================================================= */
 
-        const linkCell =
-            document.createElement(
-                "td"
+/* =================================================
+   LINK CELL
+================================================= */
+
+const linkCell = document.createElement("td");
+
+const links = [
+    {
+        url: wish.link,
+        label: wish.linkLabel || "LAZADA"
+    },
+    {
+        url: wish.link2,
+        label: wish.linkLabel2 || "SHOPEE"
+    },
+    {
+        url: wish.link3,
+        label: wish.linkLabel3 || "TIKTOK"
+    }
+];
+
+links.forEach(item => {
+
+    if (
+        item.url &&
+        item.url.trim() !== "" &&
+        item.url.trim() !== "#"
+    ) {
+
+        const link = document.createElement("a");
+
+        link.className = "wish-link";
+        link.textContent = item.label;
+        link.href = item.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+
+        // Add spacing and separator
+        if (linkCell.children.length > 0) {
+            linkCell.appendChild(
+                document.createTextNode("")
             );
-
-
-        const link =
-            document.createElement(
-                "a"
-            );
-
-
-        link.className =
-            "wish-link";
-
-
-        link.textContent =
-            wish.linkLabel ||
-            "";
-
-
-        /* =================================================
-           REAL URL
-        ================================================= */
-
-        if (
-            wish.link &&
-            wish.link.trim() !== "" &&
-            wish.link.trim() !== "#"
-        ) {
-
-            link.href =
-                wish.link;
-
-            link.target =
-                "_blank";
-
-            link.rel =
-                "noopener noreferrer";
-
         }
 
+        linkCell.appendChild(link);
+    }
 
-        /* =================================================
-           EMPTY / DISABLED LINK
-        ================================================= */
-
-        else {
-
-            link.classList.add(
-                "disabled"
-            );
-
-            link.setAttribute(
-                "aria-disabled",
-                "true"
-            );
-
-        }
-
-
-        linkCell.appendChild(
-            link
-        );
+});
 
 
         /* =================================================
