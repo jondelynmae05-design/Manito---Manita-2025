@@ -5098,15 +5098,15 @@ image: "Wallet.png",
         wishes: [
 
             {
-                image: "",
-                label: "",
-                description: "",
+                image: "Ballpen.png",
+                label: "UNI-BALL  GEL IMPACT PEN (REGULAR)",
+                description: "NIB SIZE: 1.0MM <br> COLOR: BLACK AND/OR BLUE",
                 link: ""
             },
 
             {
-                image: "",
-                label: "",
+                image: "Tissue.png",
+                label: "FACIAL TISSUE<BR>GREEN TEA",
                 description: "",
                 link: ""
             },
@@ -5611,8 +5611,8 @@ function renderWishes(wishes) {
             "wish-label";
 
 
-        label.textContent =
-            wish.label || "";
+      label.innerHTML =
+    (wish.label || "").replace(/\n/g, "<br>");
 
 
         labelCell.appendChild(
