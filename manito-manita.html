@@ -3677,6 +3677,38 @@ body::before {
         scroll-behavior: auto !important;
     }
 }
+/* WISH TABLE COLUMN WIDTHS */
+
+.wish-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* IMAGE COLUMN */
+.wish-table td:nth-child(1) {
+    width: 22%;
+}
+
+/* LABEL COLUMN */
+.wish-table td:nth-child(2) {
+    width: 32%;
+}
+
+/* DESCRIPTION COLUMN */
+.wish-table td:nth-child(3) {
+    width: 27%;
+}
+
+/* LINK COLUMN */
+.wish-table td:nth-child(4) {
+    width: 19%;
+}
+
+.wish-table td:nth-child(2) {
+    text-align: center;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 </style>
 
 </head>
@@ -4122,23 +4154,23 @@ const participants = {
 
             {
                 image: "Bowl.png",
-                label: "MASFLEX STAINLESS STEEL <BR>MIXING BOWL",
-                description: "SIZE: 3.44 LITERS / 26CM<br>📍MALL",
+                label: "MASFLEX <br>• MEASURING CUP<br>• MIXING BOWL<br>• PAN CARBON STEEL",
+                description: "MIXING BOWL -  3.44 LITERS / 26CM<br>MEASURING CUP - 250ML<BR> PAN CARBON STEEL - 24CM<BR>📍MALL",
                 link: "",
                 linkLabel: ""
             },
 
             {
-                image: "Cup.png",
-                label: "MASFLEX  GLASS MEASURING CUP",
-                description: "SIZE: 250ML<br>📍MALL",
+                image: "",
+                label: "",
+                description: "",
                 link: ""
             },
 
             {
-                image: "Pan2.png",
-                label: "MASFLEX SPRINGFORM CARBON STEEL",
-                description: "SIZE: 24CM<br>📍MALL",
+                  image: "",
+                label: "",
+                description: "",
                 link: ""
             }
 
