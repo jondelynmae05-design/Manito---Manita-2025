@@ -3999,14 +3999,10 @@ body::before {
                     ✦ CHRISTMAS SURPRISES AWAIT ✦
                 </div>
 
-                <div class="gift-row">
+<div class="gift-row" id="participantGiftIcons">
 
-                    <span>❓</span>
-                    <span>❓</span>
-                    <span>❓</span>
-                    <span>❓</span>
-                    <span>❓</span>
-                    <span>❓</span>
+
+           
 
                 </div>
 
@@ -4063,42 +4059,51 @@ body::before {
 
 const participants = {
 
-    "ALFRED": {
+   "ALFRED": {
 
-        photo: "Alfred.jpeg",
+    photo: "Alfred.jpeg",
 
-        ticketName: "ALFRED ARABON",
+    ticketName: "ALFRED ARABON",
 
-        title: "GLADIATOR",
+    title: "GLADIATOR",
 
-        character: "MAXIMUS",
+    character: "MAXIMUS",
 
-        wishes: [
+    giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
-            {
-                image: "",
-                label: "",
-                description: "",
-                link: ""
-            },
+    wishes: [
 
-            {
-                image: "",
-                label: "",
-                description: "",
-                link: ""
-            },
+        {
+            image: "",
+            label: "",
+            description: "",
+            link: ""
+        },
 
-            {
-                image: "",
-                label: "",
-                description: "",
-                link: ""
-            }
+        {
+            image: "",
+            label: "",
+            description: "",
+            link: ""
+        },
 
-        ]
+        {
+            image: "",
+            label: "",
+            description: "",
+            link: ""
+        }
 
-    },
+    ]
+
+},
 
 
     "ALMA": {
@@ -4110,6 +4115,14 @@ const participants = {
         title: "THE HUNGER GAMES",
 
         character: "KATNISS EVERDEEN",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4149,6 +4162,14 @@ const participants = {
         title: "MAD MAX:FURY ROAD",
 
         character: "IMPERATOR FURIOSA",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4188,6 +4209,14 @@ const participants = {
         title: "THE INCREDIBLES",
 
         character: "MR. INCREDIBLE",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4227,6 +4256,14 @@ const participants = {
         title: "MOANA",
 
         character: "MAUI",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4266,6 +4303,14 @@ const participants = {
         title: "THE THREE STOOGES",
 
         character: "LARRY FINE",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4304,6 +4349,14 @@ const participants = {
         title: "SUPERGIRL",
 
         character: "SUPERGIRL",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4343,6 +4396,14 @@ const participants = {
         title: "UP",
 
         character: "RUSSEL",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4382,6 +4443,14 @@ const participants = {
         title: "ALADDIN",
 
         character: "ALADDIN",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4425,6 +4494,14 @@ const participants = {
         title: "THE THREE STOOGES",
 
         character: "MOE HOWARD",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4463,6 +4540,14 @@ const participants = {
         title: "THE GOOD DOCTOR",
 
         character: "DR. SHAUN MURPHY",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4501,6 +4586,14 @@ const participants = {
         title: "BLACK WIDOW",
 
         character: "BLACK WIDOW",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4563,6 +4656,14 @@ image: "Wallet.png",
         title: "PANDAY",
 
         character: "FLAVIO",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4601,6 +4702,14 @@ image: "Wallet.png",
         title: "BRAVE",
 
         character: "PRINCESS MERIDA",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4643,6 +4752,14 @@ image: "Wallet.png",
         title: "TINKERBELL",
 
         character: "TINKERBELL",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4684,6 +4801,14 @@ image: "Wallet.png",
         title: "WEDNESDAY",
 
         character: "WEDNESDAY ADDAMS",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4724,6 +4849,14 @@ image: "Wallet.png",
         title: "PIRATES OF CARIBBEAN",
 
         character: "CAPT. JACK SPARROW",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4766,6 +4899,14 @@ image: "Wallet.png",
         title: "AVATAR: THE LAST AIRBENDER",
 
         character: "AANG",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4808,6 +4949,14 @@ image: "Wallet.png",
         title: "WONDER WOMAN",
 
         character: "WONDER WOMAN",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4846,6 +4995,14 @@ image: "Wallet.png",
         title: "JOHNNY BRAVO",
 
         character: "JOHNNY BRAVO",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4884,6 +5041,14 @@ image: "Wallet.png",
         title: "HARRY POTTER",
 
         character: "HARRY POTTER",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -4922,7 +5087,14 @@ image: "Wallet.png",
         title: "THE INCREDIBLES",
 
         character: "EDNA E MODE",
-
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
         wishes: [
 
             {
@@ -4976,6 +5148,14 @@ image: "Wallet.png",
         title: "RUROUNI KENSHIN",
 
         character: "HIMURA KENSHIN",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -5015,6 +5195,14 @@ image: "Wallet.png",
         title: "THE THREE STOOGES",
 
         character: "CURLY HOWARD",
+giftIcons: [
+        "😭",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
 
         wishes: [
 
@@ -5053,6 +5241,15 @@ image: "Wallet.png",
         title: "HARLEY QUINN",
 
         character: "HARLEY QUINN",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
+
 
         wishes: [
 
@@ -5091,6 +5288,15 @@ image: "Wallet.png",
         title: "MULAN",
 
         character: "MULAN",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
+
 
         wishes: [
 
@@ -5131,6 +5337,15 @@ image: "Wallet.png",
         title: "KILL BILL",
 
         character: "BEATRIX KIDDO",
+giftIcons: [
+        "🎁",
+        "❓",
+        "❓",
+        "❓",
+        "❓",
+        "❓"
+    ],
+
 
         wishes: [
 
@@ -5240,6 +5455,7 @@ function createParticipantCards() {
         participantGrid.appendChild(card);
 
     });
+
 
 }
 
@@ -5356,6 +5572,34 @@ function openParticipant(
     renderWishes(
         person.wishes || []
     );
+
+
+    /* =====================================================
+       GIFT ICONS
+    ===================================================== */
+
+    const giftContainer =
+        document.getElementById(
+            "participantGiftIcons"
+        );
+
+
+    if (giftContainer) {
+
+        giftContainer.innerHTML = "";
+
+        (person.giftIcons || []).forEach(icon => {
+
+            const span =
+                document.createElement("span");
+
+            span.textContent = icon;
+
+            giftContainer.appendChild(span);
+
+        });
+
+    }
 
 
     /* =====================================================
@@ -5974,7 +6218,7 @@ function fadeParticipantBoxes() {
 
             box.style.opacity =
                 opacity;
-
+LIK
         }
 
         else if (
